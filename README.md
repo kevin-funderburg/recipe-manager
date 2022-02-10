@@ -1,4 +1,4 @@
-# {++title++}
+# My Cookbook
 
 <!-- summary -->
 
