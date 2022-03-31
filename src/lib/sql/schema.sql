@@ -1,4 +1,20 @@
 DROP TABLE IF EXISTS Recipes;
+DROP TABLE IF EXISTS GroceryList;
+DROP TABLE IF EXISTS InStock;
+
+CREATE TABLE "GroceryList" (
+	"listID"	        INTEGER,
+	"name"          TEXT NOT NULL UNIQUE,
+	"purchased"     INTEGER NOT NULL,
+	PRIMARY KEY("listID")
+);
+
+CREATE TABLE "InStock" (
+	"itemID"	        INTEGER,
+	"inStock"       INTEGER NOT NULL,
+	PRIMARY KEY("itemID")
+);
+
 
 CREATE TABLE "Recipes" (
 	"recipeID"      INTEGER,
