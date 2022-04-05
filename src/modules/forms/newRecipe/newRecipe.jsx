@@ -1,17 +1,11 @@
 import React from 'react';
-import './login.css';
+import './newRecipe.css';
 import { TextField, Button} from '@mui/material';
 
-function Login(){
+function NewRecipe(){
     return (
         <div className="mainContainer">
-            <div className="leftPane">
-                <h1 className='heading1'>Welcome!<br/>
-                    Please Log In
-                </h1>
-            </div>
-            <div className="rightPane">
-                <div className="loginWindow" display="block">
+            <div className="centerPane" display="block">
                     <p>Sign In</p>
                     <hr width="90%"/>
                     <p>User Name:</p>
@@ -23,9 +17,8 @@ function Login(){
                     <br/><br/>
                     <a href=''>Forgot password?</a>
                 </div>
-            </div>    
-        </div>
+            </div>
     );
 }
 
-export default Login;
+export default NewRecipe;

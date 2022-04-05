@@ -18,7 +18,14 @@
   justify-content: center;
   align-items: center;
 }
-
+.centerPane {
+  color: white;
+  height: 90%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .rightPane {
   height: 100%;
   width: 40%;
