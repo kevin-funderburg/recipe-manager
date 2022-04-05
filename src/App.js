@@ -6,7 +6,7 @@ import Basic from './modules/forms/basic/basic'
 function App() {
   return (
     <div className="App">
-      <Basic/>
+      <NewRecipe/>
     </div>
   );
 }

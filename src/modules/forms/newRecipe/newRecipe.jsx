@@ -10,19 +10,38 @@ function NewRecipe(){
                 <div className="formWindow" display="block">
                         <p>New Recipe</p>
                         <hr width="90%"/>
-                        <p>User Name:
-                        <TextField className="textboxSize" placeholder="Enter username"></TextField>
-                        </p>
-                        <p>Password:</p>
-                        <TextField className="textboxSize"placeholder="Enter password"></TextField>
+                        <TextField
+                            required
+                            id="outlined-required"
+                            label="Name"
+                            defaultValue="recipe name"
+                        />
+                        
+                        <br/><br/>
+                        <TextField
+                            id="outlined-multiline-static"
+                            label="Ingredients"
+                            multiline
+                            rows={4}
+                            defaultValue=""
+                        />
+                        <TextField
+                            id="outlined-multiline-static"
+                            label="Directions"
+                            multiline
+                            rows={4}
+                            defaultValue=""
+                        />
+                        <br/><br/>
+                        <TextField id="outlined-basic" label="Link" variant="outlined" />
+                        <br/><br/>
+                        <TextField id="outlined-basic" label="Prep Time" variant="outlined" />
+                        <br/><br/>
+                        <TextField id="outlined-basic" label="Cook Time" variant="outlined" />
                         <br/><br/>
                         <Button variant='contained' color='primary'>CANCEL</Button>
-                        <br/><br/>
                         <Button variant='contained' color='primary'>DOWNLOAD</Button>
-                        <br/><br/>
                         <Button variant='contained' color='primary'>SAVE</Button>
-                        <br/><br/>
-                        <a href=''>Forgot password?</a>
                     </div>
             </div>
             </div>
