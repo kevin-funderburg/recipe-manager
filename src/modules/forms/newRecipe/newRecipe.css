@@ -26,6 +26,11 @@
   justify-content: center;
   align-items: center;
 }
+.favPane {
+  display: flex;
+  justify-content: left;
+  margin-left: 5%;
+}
 .rightPane {
   height: 100%;
   width: 40%;
@@ -35,7 +40,15 @@
   justify-content: center;
   align-items: center;
 }
-
+.ingredientsPane {
+  display: flex
+}
+.ingredientLabel {
+  text-align: left;
+}
+.directionsLabel {
+  text-align: left;
+}
 .formWindow {
   background-color: white;
   color: black;
@@ -43,7 +56,9 @@
   width: 75%;
   display: inline-block;
 }
-
+.ratingPane {
+  margin-left: 62%
+}
 .textboxSize {
   height: 10%;
   width: 70%;
