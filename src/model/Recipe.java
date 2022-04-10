@@ -29,21 +29,21 @@ public class Recipe {
 
 }
 
-public void download(String url) {
-    if (validURL(url)) {
-        String html = getHTML(url);
+    public void download(String url) {
+        if (validURL(url)) {
+            String html = getHTML(url);
+        }
     }
-}
 
-public boolean validURL(String url) {
-    String[] validURLs = {"foodnetwork", "epicurious", "delish"};
-    boolean valid = false;
-    for (String s : validURLs) {
-        if (url.contains(s))
-            valid = true;
+    public boolean validURL(String url) {
+        String[] validURLs = { "foodnetwork", "epicurious", "delish" };
+        boolean valid = false;
+        for (String s : validURLs) {
+            if (url.contains(s))
+                valid = true;
+        }
+        return valid;
     }
-    return valid;
-}
 
 public String getHTML(String url) {
     String html;
