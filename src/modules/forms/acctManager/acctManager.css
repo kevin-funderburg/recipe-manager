@@ -57,6 +57,14 @@
   width: 75%;
   display: inline-block;
 }
+.centerPane {
+  color: white;
+  height: 90%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .ratingPane {
   margin-left: 62%
 }

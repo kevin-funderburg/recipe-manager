@@ -21,76 +21,35 @@ function AcctManager(){
             autoComplete="off"
         >
             <div className="mainContainer">
+                <div className="centerPane">
                     <div className="formWindow" display="block">
                         <div className="favPane">
                             <p>Manage your account</p>
-                            <TextField
-                                required
-                                id="name"
-                                placeholder="recipe name"
-                            />
-                            <Rating name="rating" value={null} className="ratingPane"/>
                         </div>
                         <hr></hr>
-                        <div className="ingredientsPane">
-                            <div className="ingredientLabel">
-                                <p style={{paddingLeft: 10}}>Ingredients</p>
-                                <TextField
-                                    id="ingredients"
-                                    multiline
-                                    rows={4}
-                                    defaultValue=""
-                                    />
-                            </div>
-                            <div className="directionsPane">
-                                <div className="directionsLabel">
-                                    <p style={{paddingLeft: 10}}>Directions</p>
-                                    <TextField
-                                        id="directions"
-                                        multiline
-                                        rows={4}
-                                        defaultValue=""
-                                        />
-                                </div>
-                            </div>
+                        <div className="userInfo">
+                            <TextField id="firstName" label="First Name" variant="outlined" />
+                            <TextField id="lasttName" label="Last Name" variant="outlined" />
+                            <TextField id="middleInitial" label="Middle Initial" variant="outlined" />
+                            <TextField id="emailAddress" label="Email Address" variant="outlined" />
+                            <TextField id="mailingAddress" label="Mailing Address" variant="outlined" />
+                            <TextField id="state" label="State" variant="outlined" />
                         </div>
                         <hr></hr>
-                        <div className="categoryPane">
-                        <TextField id="link-to-source" label="Link" variant="outlined" />
-                            <TextField id="preptime" label="Prep Time" variant="outlined" />
-                            <TextField id="cooktime" label="Cook Time" variant="outlined" />
-                            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-                            <br/><br/>
-                            <FormControl sx={{ m: 1, minWidth: 120 }}>
-                                <InputLabel id="category">Category</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    value={"age"}
-                                    label="Category"
-                                    // onChange={handleChange}
-                                >
-                                    <MenuItem value={"beef"}>Beef</MenuItem>
-                                    <MenuItem value={"fish"}>Fish</MenuItem>
-                                    <MenuItem value={"pork"}>Pork</MenuItem>
-                                    <MenuItem value={"poultry"}>Poultry</MenuItem>
-                                    <MenuItem value={"shellfish"}>Shellfish</MenuItem>
-                                    <MenuItem value={"desert"}>Desert</MenuItem>
-                                    <MenuItem value={"breakfast"}>Breakfast</MenuItem>
-                                </Select>
-                            </FormControl>
-                            
-                            {/* <IconButton color="primary" aria-label="add to shopping cart">
-                                <AddShoppingCartIcon />
-                            </IconButton> */}
-                            <br/><br/>
+                        <div className="passwordPane">
                             <Button variant='contained' color='primary'>CANCEL</Button>
-                            <Button variant='contained' color='primary'>DOWNLOAD</Button>
                             <Button variant='contained' color='primary'>SAVE</Button>
+                            <TextField
+                                id="outlined-password-input"
+                                label="Password"
+                                type="password"
+                                autoComplete="current-password"
+                            />
                         </div>
                             
                     </div>
                 </div>
+            </div>
         </Box>
     );
 }
