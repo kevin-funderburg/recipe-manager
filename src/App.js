@@ -3,25 +3,28 @@ import Login from './modules/authenticate/login/login';
 import NewRecipe from './modules/forms/newRecipe/newRecipe'
 import Basic from './modules/forms/basic/basic'
 import Download from './modules/forms/download/download'
-import { Router, Routes, Route } from 'react-router-dom';
+import { Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
 
-    <Router>
+    <BrowserRouter>
 
       <div className="App">
-        <Login/>
-        {/* <NewRecipe/> */}
+        {/* <Login/> */}
+        <NewRecipe/>
         {/* <Download/> */}
       </div>
 
       <Routes>
 
-        <Route path="/" exact>
-          <NewRecipe />
-        </Route>
+        <Route path="/download" element={<Download />}>
 
+        </Route>
+        {/* <Route path="/" element={<NewRecipe />} exact>
+          <NewRecipe />
+        </Route> */}
+        {/* 
         <Route path="/download" exact>
           <Download />  
         </Route>
@@ -32,11 +35,11 @@ function App() {
 
         <Route path="/acctManage" exact>
           <Download />  
-        </Route>
+        </Route> */}
         
       </Routes>
 
-    </Router>
+    </BrowserRouter>
 
   );
 }
