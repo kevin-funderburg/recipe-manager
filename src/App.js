@@ -9,6 +9,7 @@ function App() {
   return (
 
     <Router>
+
       <div className="App">
         <Login/>
         {/* <NewRecipe/> */}
@@ -32,6 +33,7 @@ function App() {
         <Route path="/acctManage" exact>
           <Download />  
         </Route>
+        
       </Routes>
 
     </Router>
