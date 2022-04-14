@@ -2,6 +2,7 @@ import React from 'react';
 import './download.css';
 import { TextField, Button} from '@mui/material';
 import Box from '@mui/material/Box';
+import { Link } from 'react-router-dom';
 
 function Download(){
     return (
@@ -26,7 +27,13 @@ function Download(){
                                 defaultValue="someting.foodnetwork.com"
                             />
                             <br/><br/>
-                            <Button variant='contained' color='primary'>CANCEL</Button>
+                            <Button component={Link}
+                                to={{
+                                    pathname: '/newRecipe',
+                                }} 
+                                variant='contained' 
+                                color='primary'>CANCEL
+                            </Button>
                             <Button variant='contained' color='primary'>OK</Button>
                     </div>
                 </div>
