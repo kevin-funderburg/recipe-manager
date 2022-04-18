@@ -1,47 +1,37 @@
+import React from "react"
 import './App.css';
-import Login from './modules/authenticate/login/login';
-import NewRecipe from './modules/forms/newRecipe/newRecipe'
-import Basic from './modules/forms/basic/basic'
-import Download from './modules/forms/download/download'
-import { Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+// import Login from './modules/authenticate/login/login';
+// import NewRecipe from './modules/forms/newRecipe/newRecipe'
+// import Basic from './modules/forms/basic/basic'
+// import Download from './modules/forms/download/download'
+// import Home from './modules/pages/home/home'
+import { BrowserRouter as Router, 
+         Route,
+         Routes, 
+         Link } from 'react-router-dom';
 
-function App() {
+const Home = () => {
   return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  );
+};
 
-    <BrowserRouter>
-
-      <div className="App">
-        {/* <Login/> */}
-        <NewRecipe/>
-        {/* <Download/> */}
-      </div>
-
-      <Routes>
-
-        <Route path="/download" element={<Download />}>
-
-        </Route>
-        {/* <Route path="/" element={<NewRecipe />} exact>
-          <NewRecipe />
-        </Route> */}
-        {/* 
-        <Route path="/download" exact>
-          <Download />  
-        </Route>
-
-        <Route path="/newRecipe" exact>
-          <Download />  
-        </Route>
-
-        <Route path="/acctManage" exact>
-          <Download />  
-        </Route> */}
-        
-      </Routes>
-
-    </BrowserRouter>
-
+const About = () => {
+  return (
+    <div>
+      <h1>About</h1>
+    </div>
   );
 }
+
+const App = () => {
+  return (
+    <div>
+      <Link to="/">Home</Link>
+    </div>
+  );
+};
 
 export default App;
