@@ -6,6 +6,9 @@ import NewRecipe from './modules/forms/newRecipe/newRecipe'
 import Download from './modules/forms/download/download'
 import Home from './modules/pages/home/home'
 import About from './modules/pages/about/about'
+import Navbar from './modules/navbar/Navbar'
+import RecipeList from './modules/forms/RecipeList/RecipeList'
+
 import { BrowserRouter as Router, 
          Route,
          Routes, 
@@ -15,12 +18,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/download">Download</Link>
-        <Link to="/newrecipe">New Recipe</Link>
-        <Link to="/download">Download</Link>
-        <Link to="/login">Login</Link>
+        <Navbar />
       </div>
 
       <Routes>
@@ -28,6 +26,7 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/download" element={<Download />}></Route>
         <Route path="/newrecipe" element={<NewRecipe />}></Route>
+        <Route path="/myrecipes" element={<RecipeList />}></Route>
         <Route path="/login" element={<Login />}></Route>
       </Routes>
 

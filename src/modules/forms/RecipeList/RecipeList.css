@@ -1,0 +1,68 @@
+.mainContainer {
+  background-color: #501214;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  display: flex;
+  vertical-align: middle;
+}
+
+.heading1 {
+  font-size: 56px;
+}
+.leftPane {
+  color: white;
+  height: 100%;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.centerPane {
+  color: white;
+  height: 90%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.favPane {
+  display: flex;
+  justify-content: left;
+  margin-left: 5%;
+}
+.rightPane {
+  height: 100%;
+  width: 40%;
+  background-color: #501214;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ingredientsPane {
+  display: flex
+}
+.ingredientLabel {
+  text-align: left;
+}
+.directionsLabel {
+  text-align: left;
+}
+.formWindow {
+  background-color: white;
+  color: black;
+  height: 80%;
+  width: 75%;
+  display: inline-block;
+}
+.ratingPane {
+  margin-left: 62%
+}
+.textboxSize {
+  height: 10%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
