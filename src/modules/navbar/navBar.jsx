@@ -43,9 +43,9 @@ function Navbar() {
             {/* <Link to="/" className={classes.link}>
               Home
             </Link> */}
-            {/* <Link to="/about" className={classes.link}>
-              About
-            </Link> */}
+            <Link to="/newrecipe" className={classes.link}>
+              New Recipe
+            </Link>
             <Link to="/myaccount" className={classes.link}>
               My Account
             </Link>
