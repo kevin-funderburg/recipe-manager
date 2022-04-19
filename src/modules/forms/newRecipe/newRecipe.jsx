@@ -84,7 +84,11 @@ function NewRecipe(){
                                 <AddShoppingCartIcon />
                             </IconButton> */}
                             <br/><br/>
-                            <Button variant='contained' color='primary'>CANCEL</Button>
+                            <Button component={Link}
+                                to={{
+                                    pathname: '/',
+                                }}
+                                variant='contained' color='primary'>CANCEL</Button>
                             <Button component={Link}
                                 to={{
                                     pathname: '/download',
