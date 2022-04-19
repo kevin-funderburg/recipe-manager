@@ -33,19 +33,19 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
-  createData('Chicken Cordon Bleu', 305, 3.7, 67, 4.3),
-  createData('My Favorite Patato Gratin', 452, 25.0, 51, 4.9),
-  createData('Chicken and Rice', 262, 16.0, 24, 6.0),
-  createData('Braised Brussell Sprouts', 159, 6.0, 24, 4.0),
-  createData('Sausage and Fish One-Pot', 356, 16.0, 49, 3.9),
-  createData('Chicken Tortilla Soup', 408, 3.2, 87, 6.5),
-  createData('Shrimp and Scallop Scampi with Linguine', 237, 9.0, 37, 4.3),
-  createData('Emeril\'s Fettucine Alfredo Sauce', 375, 0.0, 94, 0.0),
-  createData('Arroz con Pollo', 518, 26.0, 65, 7.0),
-  createData('Chicken Salad Four Ways', 392, 0.2, 98, 0.0),
-  createData('Wedding Chicken', 318, 0, 81, 2.0),
-  createData('Instant Pot Pot Roast', 360, 19.0, 9, 37.0),
-  createData('Pork Chops with Country Gravy', 437, 18.0, 63, 4.0),
+  createData('Chicken Cordon Bleu', 20, 25, 4, 0),
+  createData('My Favorite Patato Gratin', 20, 75, 5, 1),
+  createData('Chicken and Rice', 30, 60, 5, 1),
+  createData('Braised Brussell Sprouts', 10, 15, 5, 1),
+  createData('Sausage and Fish One-Pot', 5, 25, 4, 1),
+  createData('Chicken Tortilla Soup', 10, 25, 3, 0),
+  createData('Shrimp and Scallop Scampi with Linguine', 20, 9, 5, 0),
+  createData('Emeril\'s Fettucine Alfredo Sauce', 20, 10, 4, 0),
+  createData('Arroz con Pollo', 20, 60, 5, 1),
+  createData('Chicken Salad Four Ways', 20, 20, 4, 0),
+  createData('Wedding Chicken', 30, 60, 3, 0),
+  createData('Instant Pot Pot Roast', 5, 120, 4, 0),
+  createData('Pork Chops with Country Gravy', 10, 15, 5, 1),
 ];
 
 function descendingComparator(a, b, orderBy) {

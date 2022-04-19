@@ -46,6 +46,9 @@ function Navbar() {
             <Link to="/about" className={classes.link}>
               About
             </Link>
+            <Link to="/myaccount" className={classes.link}>
+              My Account
+            </Link>
             <Link to="/myrecipes" className={classes.link}>
               My Recipes
             </Link>
