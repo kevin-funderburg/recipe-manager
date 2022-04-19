@@ -40,17 +40,20 @@ function Navbar() {
           My Cookbook
         </Typography>
           <div className={classes.navlinks}>
-            <Link to="/" className={classes.link}>
+            {/* <Link to="/" className={classes.link}>
               Home
-            </Link>
-            <Link to="/about" className={classes.link}>
+            </Link> */}
+            {/* <Link to="/about" className={classes.link}>
               About
-            </Link>
+            </Link> */}
             <Link to="/myaccount" className={classes.link}>
               My Account
             </Link>
             <Link to="/myrecipes" className={classes.link}>
               My Recipes
+            </Link>
+            <Link to="/grocerylist" className={classes.link}>
+              Grocery List
             </Link>
             <Link to="/login" className={classes.link}>
               Login

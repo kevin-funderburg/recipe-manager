@@ -22,30 +22,32 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 
-function createData(name, prep, cook, rating, favorite) {
+function createData(name, calories, fat, carbs, protein) {
   return {
     name,
-    prep,
-    cook,
-    rating,
-    favorite,
+    calories,
+    fat,
+    carbs,
+    protein,
   };
 }
 
 const rows = [
-  createData('Chicken Cordon Bleu', 20, 25, 4, 0),
-  createData('My Favorite Patato Gratin', 20, 75, 5, 1),
-  createData('Chicken and Rice', 30, 60, 5, 1),
-  createData('Braised Brussell Sprouts', 10, 15, 5, 1),
-  createData('Sausage and Fish One-Pot', 5, 25, 4, 1),
-  createData('Chicken Tortilla Soup', 10, 25, 3, 0),
-  createData('Shrimp and Scallop Scampi with Linguine', 20, 9, 5, 0),
-  createData('Emeril\'s Fettucine Alfredo Sauce', 20, 10, 4, 0),
-  createData('Arroz con Pollo', 20, 60, 5, 1),
-  createData('Chicken Salad Four Ways', 20, 20, 4, 0),
-  createData('Wedding Chicken', 30, 60, 3, 0),
-  createData('Instant Pot Pot Roast', 5, 120, 4, 0),
-  createData('Pork Chops with Country Gravy', 10, 15, 5, 1),
+  createData('Salt'),
+  createData('Chicken Stock'),
+  createData('Brussel Sprouts'),
+  createData('Cheese'),
+  createData('Potatoes'),
+  createData('Carrots'),
+  createData('3 lb chicken'),
+  createData('Beer'),
+  createData('Charcoal'),
+  createData('Olive Oil'),
+  createData('Sandwhich meat'),
+  createData('10 oz Spinach'),
+  createData('Sausage'),
+  createData('4 cod fillets'),
+  createData('Parsley'),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -84,30 +86,6 @@ const headCells = [
     numeric: false,
     disablePadding: true,
     label: 'Name',
-  },
-  {
-    id: 'Prep',
-    numeric: true,
-    disablePadding: false,
-    label: 'Prep',
-  },
-  {
-    id: 'Cook',
-    numeric: true,
-    disablePadding: false,
-    label: 'Cook',
-  },
-  {
-    id: 'Rating',
-    numeric: true,
-    disablePadding: false,
-    label: 'Rating',
-  },
-  {
-    id: 'Favorite',
-    numeric: true,
-    disablePadding: false,
-    label: 'Favorite',
   },
 ];
 
@@ -197,7 +175,7 @@ const EnhancedTableToolbar = (props) => {
           id="tableTitle"
           component="div"
         >
-          My Recipes
+          Grocery List
         </Typography>
       )}
 
@@ -222,7 +200,7 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export default function RecipeList() {
+export default function GroceryList() {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
@@ -338,10 +316,6 @@ export default function RecipeList() {
                       >
                         {row.name}
                       </TableCell>
-                      <TableCell align="right">{row.prep}</TableCell>
-                      <TableCell align="right">{row.cook}</TableCell>
-                      <TableCell align="right">{row.rating}</TableCell>
-                      <TableCell align="right">{row.favorite}</TableCell>
                     </TableRow>
                   );
                 })}

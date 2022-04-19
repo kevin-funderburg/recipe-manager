@@ -8,6 +8,7 @@ import Home from './modules/pages/home/home'
 import About from './modules/pages/about/about'
 import Navbar from './modules/navbar/Navbar'
 import RecipeList from './modules/forms/RecipeList/RecipeList'
+import GroceryList from './modules/forms/GroceryList/GroceryList'
 import AcctManager from './modules/forms/acctManager/AcctManager'
 
 import { BrowserRouter as Router, 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/download" element={<Download />}></Route>
         <Route path="/newrecipe" element={<NewRecipe />}></Route>
         <Route path="/myrecipes" element={<RecipeList />}></Route>
+        <Route path="/grocerylist" element={<GroceryList />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/myaccount" element={<AcctManager />}></Route>
       </Routes>
