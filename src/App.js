@@ -4,30 +4,14 @@ import Login from './modules/authenticate/login/login';
 import NewRecipe from './modules/forms/newRecipe/newRecipe'
 // import Basic from './modules/forms/basic/basic'
 import Download from './modules/forms/download/download'
-// import Home from './modules/pages/home/home'
+import Home from './modules/pages/home/home'
+import About from './modules/pages/about/about'
 import { BrowserRouter as Router, 
          Route,
          Routes, 
-         Switch,
          Link } from 'react-router-dom';
 
-const Home = () => {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  );
-};
-
-const About = () => {
-  return (
-    <div>
-      <h1>About</h1>
-    </div>
-  );
-}
-
-const App = () => {
+function App() {
   return (
     <Router>
       <div>

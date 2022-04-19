@@ -8,3 +8,4 @@
 .vscode
 
 *.scpt
+node_modules/*

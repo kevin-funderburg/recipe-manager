@@ -11,7 +11,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 // import { Formik } from 'formik';
 import { Link } from 'react-router-dom';
 
-function NewRecipe(){
+function NewRecipe() {
     return (
         <Box
             component="form"
