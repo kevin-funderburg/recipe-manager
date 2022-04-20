@@ -1,6 +1,6 @@
 import React from "react"
 import './App.css';
-import Login from './modules/authenticate/login/login';
+import Login from './modules/authenticate/login';
 import NewRecipe from './modules/forms/newRecipe/newRecipe'
 // import Basic from './modules/forms/basic/basic'
 import Download from './modules/forms/download/download'
