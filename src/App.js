@@ -6,7 +6,7 @@ import NewRecipe from './modules/forms/newRecipe/newRecipe'
 import Download from './modules/forms/download/download'
 import Home from './modules/pages/home/home'
 import About from './modules/pages/about/about'
-import Navbar from './modules/navbar/Navbar'
+import Navbar from './modules/navbar'
 import RecipeList from './modules/forms/RecipeList/RecipeList'
 import AcctManager from './modules/forms/acctManager/AcctManager'
 
