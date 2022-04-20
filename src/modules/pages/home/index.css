@@ -10,15 +10,18 @@
 .heading1 {
   font-size: 56px;
 }
-.leftPane {
+
+.leftPanel {
   color: white;
   height: 100%;
   width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
-.centerPane {
+
+.centerPanel {
   color: white;
   height: 90%;
   width: 90%;
@@ -26,14 +29,19 @@
   justify-content: center;
   align-items: center;
 }
-.rightPane {
-  height: 100%;
-  width: 40%;
+.rightPanel {
+  width: 60%;
   background-color: #501214;
   vertical-align: middle;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.rightPanel .choose-option {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
 }
 
 .formWindow {
@@ -42,6 +50,12 @@
   height: 80%;
   width: 75%;
   display: inline-block;
+  padding: 0px 16px;
+}
+
+.formWindow Button {
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 .textboxSize {
@@ -50,4 +64,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.sign-out button {
+  margin-top: 36px;
 }
