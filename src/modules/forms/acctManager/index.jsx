@@ -1,5 +1,5 @@
 import React from 'react';
-import './acctManager.css';
+import './index.css';
 import { TextField, Button, Rating, IconButton} from '@mui/material';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
