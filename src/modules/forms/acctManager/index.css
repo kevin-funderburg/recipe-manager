@@ -1,6 +1,5 @@
 .mainContainer {
   background-color: #501214;
-  height: 100vh;
   width: 100vw;
   color: white;
   display: flex;
@@ -26,11 +25,13 @@
   justify-content: center;
   align-items: center;
 }
+
 .favPane {
   display: flex;
   justify-content: left;
-  margin-left: 5%;
+  margin-left: 16px;
 }
+
 .rightPane {
   height: 100%;
   width: 40%;
@@ -41,7 +42,7 @@
   align-items: center;
 }
 .ingredientsPane {
-  display: flex
+  display: flex;
 }
 .ingredientLabel {
   text-align: left;
@@ -66,7 +67,7 @@
   align-items: center;
 }
 .ratingPane {
-  margin-left: 62%
+  margin-left: 62%;
 }
 .textboxSize {
   height: 10%;
@@ -74,4 +75,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.userInfo {
+  padding: 8px;
+  margin: 0px;
+}
+
+.userInfo .MuiTextField-root {
+  width: 32% !important;
+}
+
+.passwordPane {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  margin: 0px 4px 0px 8px;
+}
+
+.passwordPane button + button {
+  margin-left: 16px;
+}
+
+.passwordPane .MuiTextField-root {
+  margin-top: 0px !important;
 }
