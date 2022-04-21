@@ -227,8 +227,8 @@ export default function RecipeList() {
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [dense, setDense] = React.useState(true);
+  const [rowsPerPage, setRowsPerPage] = React.useState(25);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -275,7 +275,8 @@ export default function RecipeList() {
   };
 
   const handleChangeDense = (event) => {
-    setDense(event.target.checked);
+    // setDense(event.target.checked);
+    setDense(true);
   };
 
   const isSelected = (name) => selected.indexOf(name) !== -1;
