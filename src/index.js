@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Bookshelf } from './components/bookshelf'
 
 // ReactDOM.render((
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <Bookshelf />
   </React.StrictMode>,
   document.getElementById('root')
   // <BrowserRouter>

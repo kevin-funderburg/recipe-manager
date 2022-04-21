@@ -35,7 +35,8 @@ function Home() {
             In-Stock
           </Button>
           <br />
-          <a href="">Manage Account</a>
+          <Link to="/myaccount">My Account</Link>
+          {/* <a href="">Manage Account</a> */}
 
           <div className="sign-out">
             <hr />
