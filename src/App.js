@@ -1,14 +1,14 @@
 import React from "react"
 import './App.css';
-import Login from './modules/authenticate/login/login';
+import Login from './modules/authenticate/login';
 import NewRecipe from './modules/forms/newRecipe/newRecipe'
 // import Basic from './modules/forms/basic/basic'
 import Download from './modules/forms/download/download'
-import Home from './modules/pages/home/home'
+import Home from './modules/pages/home'
 import About from './modules/pages/about/about'
-import Navbar from './modules/navbar/Navbar'
+import Navbar from './modules/navbar'
 import RecipeList from './modules/forms/RecipeList/RecipeList'
-import AcctManager from './modules/forms/acctManager/AcctManager'
+import AcctManager from './modules/forms/acctManager'
 
 import { BrowserRouter as Router, 
          Route,

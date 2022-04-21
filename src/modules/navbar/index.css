@@ -41,7 +41,7 @@
   align-items: center;
 }
 .ingredientsPane {
-  display: flex
+  display: flex;
 }
 .ingredientLabel {
   text-align: left;
@@ -57,7 +57,7 @@
   display: inline-block;
 }
 .ratingPane {
-  margin-left: 62%
+  margin-left: 62%;
 }
 .textboxSize {
   height: 10%;

@@ -10,15 +10,18 @@
 .heading1 {
   font-size: 56px;
 }
-.leftPane {
+
+.leftPanel {
   color: white;
   height: 100%;
   width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
-.centerPane {
+
+.centerPanel {
   color: white;
   height: 90%;
   width: 90%;
@@ -26,52 +29,43 @@
   justify-content: center;
   align-items: center;
 }
-.favPane {
-  display: flex;
-  justify-content: left;
-  margin-left: 5%;
-}
-.rightPane {
-  height: 100%;
-  width: 40%;
+.rightPanel {
+  width: 60%;
   background-color: #501214;
   vertical-align: middle;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.ingredientsPane {
-  display: flex
+
+.rightPanel .choose-option {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
 }
-.ingredientLabel {
-  text-align: left;
-  margin-left: 20px;
-}
-.directionsLabel {
-  text-align: left;
-}
+
 .formWindow {
   background-color: white;
   color: black;
   height: 80%;
   width: 75%;
   display: inline-block;
+  padding: 0px 16px;
 }
-.centerPane {
-  color: white;
-  height: 90%;
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.formWindow Button {
+  margin-left: 16px;
+  margin-right: 16px;
 }
-.ratingPane {
-  margin-left: 62%
-}
+
 .textboxSize {
   height: 10%;
   width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.sign-out button {
+  margin-top: 36px;
 }
