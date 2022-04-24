@@ -160,7 +160,6 @@ function NewRecipe() {
         "& .MuiButton-root": {
           width: "auto",
           fontSize: "100%",
-          marginLeft: "35%",
           marginTop: "7%",
           marginBottom: "7%",
           bgcolor: "#826F66",
@@ -177,6 +176,7 @@ function NewRecipe() {
           elevation={3}
           sx={{
             p: 2,
+            textAlign: "center",
             mt: "auto",
             mb: "auto",
             ml: "auto",
