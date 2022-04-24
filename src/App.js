@@ -1,14 +1,14 @@
 import React from "react"
 import Login from './modules/authenticate/login/login.jsx';
-import NewRecipe from './modules/forms/newRecipe/newRecipe.jsx'
+import NewRecipe from './modules/forms/newRecipe/NewRecipe.jsx'
 // import Basic from './modules/forms/basic/basic'
 import Download from './modules/forms/download/download'
 import Home from './modules/pages/home/home'
 import About from './modules/pages/about/about'
-import Navbar from './modules/navbar/navBar.jsx'
+import Navbar from './modules/navbar/NavBar.jsx'
 import RecipeList from './modules/forms/RecipeList/RecipeList'
 import GroceryList from './modules/forms/GroceryList/GroceryList'
-import AcctManager from './modules/forms/acctManager/acctManager'
+import AcctManager from './modules/forms/acctManager/AcctManager'
 
 import { BrowserRouter as Router, 
          Route,

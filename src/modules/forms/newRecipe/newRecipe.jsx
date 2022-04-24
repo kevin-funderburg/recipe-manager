@@ -156,11 +156,11 @@ function NewRecipe() {
         width: "100%",
         maxheight: false,
         maxwidth: false,
-        "& .MuiTextField-root": { m: 3, width: "30ch" },
+        "& .MuiTextField-root": { m: "7%", width: "70%" },
         "& .MuiButton-root": {
-          width: "16ch",
-          fontSize: "1.7ch",
-          marginLeft: "25%",
+          width: "35%",
+          fontSize: "100%",
+          marginLeft: "20%",
           bgcolor: "#826F66",
           ":hover": {
             bgcolor: "#C69B7B",
@@ -175,12 +175,12 @@ function NewRecipe() {
           elevation={3}
           sx={{
             p: 2,
-            mt: 13,
-            mb: 13,
-            ml: 20,
-            mr: 20,
+            mt: "auto",
+            mb: "auto",
+            ml: "auto",
+            mr: "auto",
             justify: "center",
-            borderRadius: 10,
+            borderRadius: 20,
           }}
         >
           <form onSubmit={handleRecipeSubmit}>
@@ -261,7 +261,7 @@ function NewRecipe() {
             <hr></hr>
             <Grid container spacing={2}>
               <Grid item xs={4}>
-                <FormControl sx={{ m: 3, minWidth: "20ch" }}>
+                <FormControl sx={{ m: "7%", minWidth: "50%" }}>
                   <InputLabel id="label-category">Category</InputLabel>
                   <Select
                     labelId="outlined-select-category-native"
