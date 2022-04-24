@@ -18,14 +18,6 @@
   align-items: center;
 }
 
-.formWindow {
-  background-color: white;
-  color: black;
-  height: 80%;
-  width: 75%;
-  display: inline-block;
-}
-
 .textboxSize {
   height: 10%;
   width: 70%;

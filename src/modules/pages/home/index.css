@@ -26,15 +26,6 @@
   row-gap: 12px;
 }
 
-.formWindow {
-  background-color: white;
-  color: black;
-  height: 80%;
-  width: 75%;
-  display: inline-block;
-  padding: 0px 16px;
-}
-
 .formWindow Button {
   margin-left: 16px;
   margin-right: 16px;
