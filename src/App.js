@@ -17,9 +17,20 @@ import {
   Link
 } from 'react-router-dom';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#6A5638',
+    },
+  },
+});
+
 function App() {
   return (
-    <Router>
+    <ThemeProvider theme={theme}>
+<Router>
       <Navbar />
 
       <Routes>
@@ -33,6 +44,8 @@ function App() {
       </Routes>
 
     </Router>
+    </ThemeProvider>
+    
   );
 };
 

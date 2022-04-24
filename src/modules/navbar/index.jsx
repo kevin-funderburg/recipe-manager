@@ -5,10 +5,14 @@ import {
   CssBaseline,
   Typography,
   makeStyles,
+  useTheme
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: "#6A5638",
+  },
   navlinks: {
     marginLeft: theme.spacing(10),
     display: "flex",
@@ -33,7 +37,7 @@ function Navbar() {
   const classes = useStyles();
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" className={classes.root}>
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
