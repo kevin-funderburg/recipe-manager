@@ -305,40 +305,45 @@ function NewRecipe() {
               </Grid>
               <br />
               <br />
-              <Grid container></Grid>
+              <Grid container spacing={2}>
+                <Grid item xs={4}>
+                  <Button
+                    component={Link}
+                    id="button-cancel"
+                    name="cancel"
+                    to={{
+                      pathname: "/",
+                    }}
+                    variant="contained"
+                    color="primary"
+                  >
+                    CANCEL
+                  </Button>
+                </Grid>
+                <Grid item xs={4}>
+                  <Button
+                    component={Link}
+                    id="button-download"
+                    name="download"
+                    to={{
+                      pathname: "/download",
+                    }}
+                    variant="contained"
+                    color="primary"
+                  >
+                    DOWNLOAD
+                  </Button>
+                </Grid>
+                <Grid item xs={4}>
+                  <Button variant="contained" color="primary" type="submit">
+                    SAVE
+                  </Button>
+                </Grid>
+              </Grid>
 
               {/* <IconButton color="primary" aria-label="add to shopping cart">
                                 <AddShoppingCartIcon />
                             </IconButton> */}
-              <br />
-              <br />
-              <Button
-                component={Link}
-                id="button-cancel"
-                name="cancel"
-                to={{
-                  pathname: "/",
-                }}
-                variant="contained"
-                color="primary"
-              >
-                CANCEL
-              </Button>
-              <Button
-                component={Link}
-                id="button-download"
-                name="download"
-                to={{
-                  pathname: "/download",
-                }}
-                variant="contained"
-                color="primary"
-              >
-                DOWNLOAD
-              </Button>
-              <Button variant="contained" color="primary" type="submit">
-                SAVE
-              </Button>
             </Grid>
           </form>
         </Paper>
