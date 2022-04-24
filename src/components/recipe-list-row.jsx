@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Create RecipeListRow component
-export const BookshelfListRow = (props) => (
+export const RecipeListRow = (props) => (
   <tr className="table-row">
     <td className="table-item">
       {props.position}
@@ -27,8 +27,8 @@ export const BookshelfListRow = (props) => (
     <td className="table-item">
       <button
         className="btn btn-remove"
-        onClick={() => props.handleBookRemove(props.book.id, props.book.title)}>
-        Remove book
+        onClick={() => props.handleRecipeRemove(props.recipe.id, props.recipe.name)}>
+        Remove recipe
       </button>
     </td>
   </tr>

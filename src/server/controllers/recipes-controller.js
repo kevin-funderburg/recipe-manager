@@ -1,14 +1,14 @@
 // Import database
 const knex = require('./../db')
 
-// Retrieve all books
+// Retrieve all recipes
 exports.recipesAll = async (req, res) => {
   // Get all recipes from database
   knex
     .select('*') // select all records
-    .from('recipes') // from 'books' table
+    .from('recipes') // from 'recipes' table
     .then(userData => {
-      // Send books extracted from database in response
+      // Send recipes extracted from database in response
       res.json(userData)
     })
     .catch(err => {
@@ -44,9 +44,9 @@ exports.recipesCreate = async (req, res) => {
 }
 
 // Remove specific book
-exports.booksDelete = async (req, res) => {
+exports.recipesDelete = async (req, res) => {
   // Find specific book in the database and remove it
-  knex('books')
+  knex('recipes')
     .where('id', req.body.id) // find correct record based on id
     .del() // delete the record
     .then(() => {
@@ -59,12 +59,12 @@ exports.booksDelete = async (req, res) => {
     })
 }
 
-// Remove all books on the list
-exports.booksReset = async (req, res) => {
-  // Remove all books from database
+// Remove all recipes on the list
+exports.recipesReset = async (req, res) => {
+  // Remove all recipes from database
   knex
     .select('*') // select all records
-    .from('books') // from 'books' table
+    .from('recipes') // from 'recipes' table
     .truncate() // remove the selection
     .then(() => {
       // Send a success message in response

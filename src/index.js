@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Bookshelf } from './components/bookshelf'
+import { Recipes } from './components/recipes'
 
 // ReactDOM.render((
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
-    <Bookshelf />
+    {/* <Bookshelf /> */}
+    <Recipes />
   </React.StrictMode>,
   document.getElementById('root')
   // <BrowserRouter>
