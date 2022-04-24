@@ -22,7 +22,7 @@ function AcctManager() {
     >
       <div className="mainContainer">
         <div className="centerPane">
-          <div className="formWindow" display="block">
+          <div className="formWindow">
             <div className="favPane">
               <h1>Manage your account</h1>
             </div>
