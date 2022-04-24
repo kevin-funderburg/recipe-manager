@@ -5,7 +5,7 @@ import React from 'react'
 import { RecipeListRow } from './recipe-list-row'
 
 // Import styles
-import './../styles/bookshelf-list.css'
+import './../../../styles/bookshelf-list.css'
 
 // Create BookshelfList component
 export const RecipeList = (props) => {

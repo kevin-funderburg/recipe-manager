@@ -9,19 +9,19 @@ export const RecipeListRow = (props) => (
     </td>
 
     <td className="table-item">
-      {props.book.name}
+      {props.recipe.name}
     </td>
 
     <td className="table-item">
-      {props.book.category}
+      {props.recipe.category}
     </td>
 
     <td className="table-item">
-      {props.book.prepTime}
+      {props.recipe.prep_time}
     </td>
 
     <td className="table-item">
-      {props.book.rating}
+      {props.recipe.rating}
     </td>
 
     <td className="table-item">

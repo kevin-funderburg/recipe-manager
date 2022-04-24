@@ -6,7 +6,7 @@ import axios from 'axios'
 import { RecipeList } from './recipe-list'
 
 // Import styles
-import './../styles/bookshelf.css'
+import './../../../styles/bookshelf.css'
 
 // Create Bookshelf component
 export const Recipes = () => {
@@ -129,154 +129,9 @@ export const Recipes = () => {
 
   return (
     <div className="recipe-list-wrapper">
-      <p>hello</p>
-      <div className="recipe-list-form">
-        <p>now im here</p>
-        <div className="form-wrapper" onSubmit={handleRecipeSubmit}>
-
-          <div className="form-row">
-            <fieldset>
-              <label className="form-label" htmlFor="name">Enter name:</label>
-              <input className="form-input" type="text" id="name" name="name" value={name} onChange={(e) => setName(e.currentTarget.value)} />
-            </fieldset>
-
-            <fieldset>
-              <label className="form-label" htmlFor="ingredients">Enter ingredients:</label>
-              <input className="form-input" type="text" id="ingredients" name="ingredients" value={ingredients} onChange={(e) => setIngredients(e.currentTarget.value)} />
-            </fieldset>
-          </div>
-
-          <div className="form-row">
-             <fieldset>
-               <label className="form-label" htmlFor="instructions">Enter instructions:</label>
-               <input className="form-input" type="text" id="instructions" name="instructions" value={instructions} onChange={(e) => setInstructions(e.currentTarget.value)} />
-             </fieldset>             
-             
-             <fieldset>
-               <label className="form-label" htmlFor="description">Enter description:</label>
-               <input className="form-input" type="text" id="description" name="description" value={description} onChange={(e) => setDescription(e.currentTarget.value)} />
-             </fieldset>
-           </div>
-
-           <div className="form-row">
-            <fieldset>
-              <label className="form-label" htmlFor="category">Enter category:</label>
-              <input className="form-input" type="text" id="category" name="category" value={category} onChange={(e) => setCategory(e.currentTarget.value)} />
-            </fieldset>
-
-            <fieldset>
-              <label className="form-label" htmlFor="rating">Enter rating:</label>
-              <input className="form-input" type="text" id="rating" name="rating" value={rating} onChange={(e) => setRating(e.currentTarget.value)} />
-            </fieldset>
-          </div>
-
-          <div className="form-row">
-            <fieldset>
-              <label className="form-label" htmlFor="favorite">Enter favorite:</label>
-              <input className="form-input" type="text" id="favorite" name="favorite" value={favorite} onChange={(e) => setFavorite(e.currentTarget.value)} />
-            </fieldset>
-
-            <fieldset>
-              <label className="form-label" htmlFor="prepTime">Enter prep time:</label>
-              <input className="form-input" type="text" id="prepTime" name="prepTime" value={prepTime} onChange={(e) => setPrepTime(e.currentTarget.value)} />
-            </fieldset>
-          </div>
-
-          <div className="form-row">
-            <fieldset>
-              <label className="form-label" htmlFor="cookTime">Enter cook time:</label>
-              <input className="form-input" type="text" id="cookTime" name="cookTime" value={cookTime} onChange={(e) => setCookTime(e.currentTarget.value)} />
-            </fieldset>
-
-            <fieldset>
-              <label className="form-label" htmlFor="source">Enter source:</label>
-              <input className="form-input" type="text" id="source" name="source" value={source} onChange={(e) => setSource(e.currentTarget.value)} />
-            </fieldset>
-          </div>
-          
-        </div>
-      </div>
-
+      <RecipeList recipes={recipes} loading={loading} handleRecipeRemove={handleRecipeRemove} />
     </div>
   )
-  // return (
-  //   <div className="recipe-list-wrapper">
-  //     {/* Form for creating new recipe */}
-  //     <div className="recipe-list-form">
-  //       <div className="form-wrapper" onSubmit={handleRecipeSubmit}>
-  //         <div className="form-row">
-  //           <fieldset>
-  //             <label className="form-label" htmlFor="name">Enter name:</label>
-  //             <input className="form-input" type="text" id="name" name="name" value={name} onChange={(e) => setName(e.currentTarget.value)} />
-  //           </fieldset>
-
-  //           <fieldset>
-  //             <label className="form-label" htmlFor="ingredients">Enter ingredients:</label>
-  //             <input className="form-input" type="text" id="ingredients" name="ingredients" value={ingredients} onChange={(e) => setIngredients(e.currentTarget.value)} />
-  //           </fieldset>
-  //         </div>
-
-  //         <div className="form-row">
-  //           <fieldset>
-  //             <label className="form-label" htmlFor="instructions">Enter instructions:</label>
-  //             <input className="form-input" type="text" id="instructions" name="instructions" value={instructions} onChange={(e) => setInstructions(e.currentTarget.value)} />
-  //           </fieldset>
-
-  //           <fieldset>
-  //             <label className="form-label" htmlFor="description">Enter description:</label>
-  //             <input className="form-input" type="text" id="description" name="description" value={description} onChange={(e) => setDescription(e.currentTarget.value)} />
-  //           </fieldset>
-  //         </div>
-
-          // <div className="form-row">
-          //   <fieldset>
-          //     <label className="form-label" htmlFor="category">Enter category:</label>
-          //     <input className="form-input" type="text" id="category" name="category" value={category} onChange={(e) => setCategory(e.currentTarget.value)} />
-          //   </fieldset>
-
-          //   <fieldset>
-          //     <label className="form-label" htmlFor="rating">Enter rating:</label>
-          //     <input className="form-input" type="text" id="rating" name="rating" value={rating} onChange={(e) => setRating(e.currentTarget.value)} />
-          //   </fieldset>
-          // </div>
-
-          // <div className="form-row">
-          //   <fieldset>
-          //     <label className="form-label" htmlFor="favorite">Enter favorite:</label>
-          //     <input className="form-input" type="text" id="favorite" name="favorite" value={favorite} onChange={(e) => setFavorite(e.currentTarget.value)} />
-          //   </fieldset>
-
-          //   <fieldset>
-          //     <label className="form-label" htmlFor="prepTime">Enter prep time:</label>
-          //     <input className="form-input" type="text" id="prepTime" name="prepTime" value={prepTime} onChange={(e) => setPrepTime(e.currentTarget.value)} />
-          //   </fieldset>
-          // </div>
-
-          // <div className="form-row">
-          //   <fieldset>
-          //     <label className="form-label" htmlFor="cookTime">Enter cook time:</label>
-          //     <input className="form-input" type="text" id="cookTime" name="cookTime" value={cookTime} onChange={(e) => setCookTime(e.currentTarget.value)} />
-          //   </fieldset>
-
-          //   <fieldset>
-          //     <label className="form-label" htmlFor="source">Enter source:</label>
-          //     <input className="form-input" type="text" id="source" name="source" value={source} onChange={(e) => setSource(e.currentTarget.value)} />
-          //   </fieldset>
-          // </div>
-  //       </div>
-
-  //       <button onClick={handleRecipeSubmit} className="btn btn-add">Add the recipe</button>
-  //     </div>
-
-  //     {/* Render bookshelf list component */}
-  //     <RecipeList recipes={recipes} loading={loading} handleRecipeRemove={handleRecipeRemove} />
-
-  //     {/* Show reset button if list contains at least one book */}
-  //     {recipes.length > 0 && (
-  //       <button className="btn btn-reset" onClick={handleListReset}>Reset recipe list.</button>
-  //     )}
-  //   </div>
-  // )
 }
 
 export default Recipes;
