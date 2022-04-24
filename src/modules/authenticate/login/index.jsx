@@ -16,17 +16,28 @@ function Login() {
         <div className="loginWindow" display="block">
           <h1>Sign In</h1>
           <hr width="100%" />
-          <p>User Name:</p>
-          <TextField
-            className="textboxSize"
-            placeholder="Enter username"
-          ></TextField>
-          <p>Password:</p>
-          <TextField
-            className="textboxSize"
-            placeholder="Enter password"
-          ></TextField>
-          <br />
+          <div>
+            <label for="username">User Name:</label>
+          </div>
+          <div>
+            <TextField
+              id="username"
+              className="textboxSize"
+              placeholder="Enter username"
+            ></TextField>
+          </div>
+
+          <div>
+            <label for="password">Password:</label>
+          </div>
+          <div>
+            <TextField
+              id="password"
+              className="textboxSize"
+              placeholder="Enter password"
+            ></TextField>
+          </div>
+
           <br />
           <Button variant="contained" color="primary">
             SIGN IN

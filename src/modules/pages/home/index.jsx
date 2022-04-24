@@ -1,10 +1,12 @@
 import React from "react";
 import "./index.css";
-import { TextField, Button } from "@mui/material";
-import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
+
   return (
     <div className="mainContainer">
       <div className="leftPanel">
@@ -25,10 +27,10 @@ function Home() {
             <hr width="100%" />
           </div>
 
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" onClick={() => navigate("myrecipes")}>
             Recipes
           </Button>
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" onClick={() => navigate("grocerylist")}>
             Grocery List
           </Button>
           <Button variant="contained" color="primary">

@@ -10,17 +10,17 @@ import Navbar from './modules/navbar'
 import RecipeList from './modules/forms/RecipeList/RecipeList'
 import AcctManager from './modules/forms/acctManager'
 
-import { BrowserRouter as Router, 
-         Route,
-         Routes, 
-         Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link
+} from 'react-router-dom';
 
 function App() {
   return (
     <Router>
-      <div>
-        <Navbar />
-      </div>
+      <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
