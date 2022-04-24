@@ -1,12 +1,11 @@
 import React from "react"
-import './App.css';
-import Login from './modules/authenticate/login/login';
-import NewRecipe from './modules/forms/newRecipe/newRecipe'
+import Login from './modules/authenticate/login/login.jsx';
+import NewRecipe from './modules/forms/newRecipe/NewRecipe.jsx'
 // import Basic from './modules/forms/basic/basic'
 import Download from './modules/forms/download/download'
 import Home from './modules/pages/home/home'
 import About from './modules/pages/about/about'
-import Navbar from './modules/navbar/Navbar'
+import Navbar from './modules/navbar/NavBar.jsx'
 import RecipeList from './modules/forms/RecipeList/RecipeList'
 import GroceryList from './modules/forms/GroceryList/GroceryList'
 import AcctManager from './modules/forms/acctManager/AcctManager'
@@ -27,11 +26,11 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/download" element={<Download />}></Route>
-        <Route path="/newrecipe" element={<NewRecipe />}></Route>
-        <Route path="/myrecipes" element={<RecipeList />}></Route>
-        <Route path="/grocerylist" element={<GroceryList />}></Route>
+        <Route path="/newRecipe" element={<NewRecipe />}></Route>
+        <Route path="/myRecipes" element={<RecipeList />}></Route>
+        <Route path="/groceryList" element={<GroceryList />}></Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/myaccount" element={<AcctManager />}></Route>
+        <Route path="/myAccount" element={<AcctManager />}></Route>
       </Routes>
 
     </Router>
