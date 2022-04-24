@@ -158,9 +158,11 @@ function NewRecipe() {
         maxwidth: false,
         "& .MuiTextField-root": { m: "7%", width: "70%" },
         "& .MuiButton-root": {
-          width: "35%",
+          width: "auto",
           fontSize: "100%",
-          marginLeft: "20%",
+          marginLeft: "35%",
+          marginTop: "7%",
+          marginBottom: "7%",
           bgcolor: "#826F66",
           ":hover": {
             bgcolor: "#C69B7B",
@@ -180,7 +182,7 @@ function NewRecipe() {
             ml: "auto",
             mr: "auto",
             justify: "center",
-            borderRadius: 20,
+            borderRadius: 10,
           }}
         >
           <form onSubmit={handleRecipeSubmit}>
