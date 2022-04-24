@@ -160,7 +160,7 @@ function NewRecipe() {
         "& .MuiButton-root": {
           width: "16ch",
           fontSize: "1.7ch",
-          marginLeft: "28ch",
+          marginLeft: "25%",
           bgcolor: "#826F66",
           ":hover": {
             bgcolor: "#C69B7B",
