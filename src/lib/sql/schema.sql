@@ -21,7 +21,7 @@ CREATE TABLE "Recipes" (
 	"name"			TEXT,
 	"ingredients"   TEXT,
 	"instructions"	TEXT,
-	"descrip"       TEXT,
+	"description"       TEXT,
 	"category"      TEXT,
 	"rating"	    INTEGER,
 	"favorite"      INTEGER,
@@ -32,7 +32,7 @@ CREATE TABLE "Recipes" (
 );
 
 
-INSERT INTO Recipes (name, ingredients, instructions, descrip, category, rating, favorite, prepTime, cookTime, source)
+INSERT INTO Recipes (name, ingredients, instructions, description, category, rating, favorite, prepTime, cookTime, source)
 VALUES ("Chicken Cordon Bleu",
 "4 chicken breasts skinless and boneless
 4 thin slices prosciutto di Parma
