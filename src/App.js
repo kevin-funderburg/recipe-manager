@@ -20,9 +20,7 @@ import {
 function App() {
   return (
     <Router>
-      <div>
-        <Navbar />
-      </div>
+      <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
