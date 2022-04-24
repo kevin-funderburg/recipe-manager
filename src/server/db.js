@@ -91,16 +91,89 @@ knex.schema
       console.error(`There was an error setting up the database: ${error}`)
     })
 
+// Create a table in the database called "grocerylist"
+knex.schema
+// Make sure no "grocerylist" table exists
+// before trying to create new
+    .hasTable('grocerylist')
+    .then((exists) => {
+      if (!exists) {
+        // If no "grocerylist" table exists
+        // create new, with "id", "name" and "purchased"
+        // and use "id" as a primary identification
+        // and increment "id" with every new record (item)
+        return knex.schema.createTable('grocerylist', (table)  => {
+          table.increments('id').primary()
+          table.string('name')
+          table.integer('purchased')
+        })
+        .then(() => {
+          // Log success message
+          console.log('Table \'GroceryList\' created')
+        })
+        .catch((error) => {
+          console.error(`There was an error creating table: ${error}`)
+        })
+      }
+    })
+    .then(() => {
+      // Log success message
+      console.log('done')
+    })
+    .catch((error) => {
+      console.error(`There was an error setting up the database: ${error}`)
+    })
+
+// Create a table in the database called "instock"
+knex.schema
+// Make sure no "instock" table exists
+// before trying to create new
+    .hasTable('instock')
+    .then((exists) => {
+      if (!exists) {
+        // If no "instock" table exists
+        // create new, with "itemid" and "instock" column
+        // and increment "itemid" with every new record (recipe)
+        return knex.schema.createTable('instock', (table)  => {
+          table.increments('itemid').primary()
+          table.integer('instock')
+        })
+        .then(() => {
+          // Log success message
+          console.log('Table \'InStock\' created')
+        })
+        .catch((error) => {
+          console.error(`There was an error creating table: ${error}`)
+        })
+      }
+    })
+    .then(() => {
+      // Log success message
+      console.log('done')
+    })
+    .catch((error) => {
+      console.error(`There was an error setting up the database: ${error}`)
+    })
+
 // Just for debugging purposes:
 // Log all data in "books" table
 knex.select('*').from('books')
   .then(data => console.log('data:', data))
   .catch(err => console.log(err))
 
-  // Just for debugging purposes:
-// Log all data in "books" table
+// Log all data in "recipes" table
 knex.select('*').from('recipes')
-  .then(data => console.log('data:', data))
+  .then(data => console.log('recipes data:', data))
+  .catch(err => console.log(err))
+  
+// Log all data in "recipes" table
+knex.select('*').from('grocerylist')
+  .then(data => console.log('grocery list data:', data))
+  .catch(err => console.log(err))
+
+// Log all data in "recipes" table
+knex.select('*').from('instock')
+  .then(data => console.log('instock data:', data))
   .catch(err => console.log(err))
 
 // Export the database
