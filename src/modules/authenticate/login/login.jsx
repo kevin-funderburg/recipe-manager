@@ -96,18 +96,30 @@ function Login() {
                 variant="contained"
                 color="primary"
               >
-                LOGIN
+                Login
               </Button>
             </Grid>
           </Grid>
           <Typography
             component={Link}
             to={{ pathname: "/myAccount" }}
-            variant="body1"
+            variant="link"
             color="blue"
-            sx={{}}
+            sx={{ display: "block", marginBottom: "1%" }}
           >
             Forgot Password?
+          </Typography>
+          <Typography variant="link" color="blue" sx={{ display: "inline" }}>
+            Don't have an account?
+          </Typography>
+          <Typography
+            component={Link}
+            to={{ pathname: "/myAccount" }}
+            variant="link"
+            color="green"
+            sx={{}}
+          >
+            Sign up
           </Typography>
         </Paper>
       </div>
