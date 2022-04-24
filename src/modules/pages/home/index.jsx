@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ function Home() {
             In-Stock
           </Button>
           <br />
-          <a href="">Manage Account</a>
+          <Link to='myaccount'>Manage Account</Link>
 
           <div className="sign-out">
             <hr />
