@@ -1,36 +1,42 @@
-DROP TABLE IF EXISTS Recipes;
-DROP TABLE IF EXISTS GroceryList;
-DROP TABLE IF EXISTS InStock;
+DROP TABLE IF EXISTS recipes;
+DROP TABLE IF EXISTS grocerylist;
+DROP TABLE IF EXISTS instock;
+DROP TABLE IF EXISTS users;
 
-CREATE TABLE "GroceryList" (
-	"listID"	        INTEGER,
+CREATE TABLE "grocerylist" (
+	"listID"	    INTEGER,
 	"name"          TEXT NOT NULL UNIQUE,
 	"purchased"     INTEGER NOT NULL,
 	PRIMARY KEY("listID")
 );
 
-CREATE TABLE "InStock" (
-	"itemID"	        INTEGER,
+CREATE TABLE "instock" (
+	"itemID"	    INTEGER,
 	"inStock"       INTEGER NOT NULL,
 	PRIMARY KEY("itemID")
 );
 
-
-CREATE TABLE "Recipes" (
-	"recipeID"      INTEGER,
-	"name"			TEXT,
-	"ingredients"   TEXT,
-	"instructions"	TEXT,
-	"descrip"       TEXT,
-	"category"      TEXT,
-	"rating"	    INTEGER,
-	"favorite"      INTEGER,
-	"prepTime"      INTEGER,
-	"cookTime"      INTEGER,
-	"source"        TEXT,
-	PRIMARY KEY("recipeID")
+CREATE TABLE "users" (
+	"id"	        INTEGER,
+	"email"			TEXT NOT NULL,
+	"password"		TEXT,
+	PRIMARY KEY("id")
 );
 
+CREATE TABLE "recipes" (
+	"id"            INTEGER,
+	"name"			TEXT,
+	"description"   TEXT,
+	"ingredients"   TEXT,
+	"directions"	TEXT,
+	"link"          TEXT,
+	"prep_time"     INTEGER,
+	"cook_time"     INTEGER,
+	"category"		TEXT,
+	"rating"	    INTEGER,
+	"favorite"      INTEGER,
+	PRIMARY KEY("id")
+);
 
 INSERT INTO recipes (name, description, ingredients, directions, link, prep_time, cook_time, category, rating, favorite)
 VALUES ("Chicken Cordon Bleu",
@@ -194,8 +200,56 @@ pepper",
 	15,
 	"Side",
 	5,
-	1)
+	1),
 	
+	(
+		"Spatchcock Chicken with Lemon Butter",
+		
+		"Chef's Notes: Spatchcocking a chicken (removing its backbone) enables you to flatten it out, which cuts down on roasting time and results in juicy, evenly cooked meat. To amp up the flavor, Michael Ruhlman bastes this chicken several times with a delicious lemon-rosemary butter. (Note: Clean your oven before cooking to reduce smoke from rendering chicken fat.)",
+
+		"CHICKEN:
+1 whole chicken, 3½–4½ lb
+kosher salt
+Freshly ground black pepper
+
+LEMON-ROSEMARY BUTTER:
+1 shallot
+Juice of 1 lemon (about 3 tablespoons)
+kosher salt
+1 sprig rosemary
+6 Tbsp unsalted butter, cut into 4 pieces
+2 Tbsp mustard powder",
+
+
+		"**Chicken**: Preheat oven to **450 F** (use convection if possible). Place skillet on the bottom rack of the oven to preheat. 
+
+Meanwhile, spatchcock the chicken: Use a heavy chef’s knife or kitchen shears to remove the backbone, running from the neck to the cavity, by cutting down one side, then down the other. Discard the backbone (or reserve to make stock). 
+
+Open the spatchcocked chicken like a book, then place skin-side up on a flat surface. Use the heel of your hand to push down on the keel bone (breastbone) to flatten the chicken. Optional: Use kitchen twine to tie the two drumsticks together for better maneuverability in the skillet. Season the chicken liberally and evenly with salt to coat. Flip skin-side down, and season again. Then season both sides with freshly ground black pepper.
+
+Remove the preheated skillet from the oven. Place chicken skin-side up into the hot skillet so it lies flat. Place into the oven and roast until it's ready for the first basting, 30 minutes. (Chicken will roast for a total of 50 minutes.)
+
+**Lemon-Rosemary Butter**: Mince the shallot and set aside. In a small saucepan, add lemon juice and a generous pinch of salt; turn heat to medium and bring to a simmer, 1–2 minutes. 
+
+Meanwhile, remove leaves from rosemary sprig and mince; you should have about 1 tablespoon of minced leaves. Add butter pieces to the simmering lemon juice and swirl the pan continuously to create an emulsion, 30–60 seconds. Whisk in the mustard powder and shallots. Turn off the heat and add rosemary. Whisk until evenly combined. Set the Lemon-Rosemary Butter aside.
+
+After 30 minutes, remove chicken from the oven. Use a pastry brush to baste the chicken with one third of the Lemon-Rosemary Butter (including pieces of shallot as well). Return chicken to the oven for another 10 minutes.
+
+After 10 minutes, remove chicken from the oven and brush skin with half the remaining Lemon-Rosemary Butter. Return to the oven and roast for 10 more minutes.
+
+After the chicken has roasted for a total of 50 minutes, remove from the oven. The skin should be dark brown, and the drumstick, when gently tugged, should want to separate from the thigh joint. Brush the chicken with the remaining Lemon-Rosemary Butter. Transfer to a cutting board and allow to rest, 15–20 minutes. 
+
+**Carve the chicken**: Use a chef’s knife to cut away the thigh-and-leg pieces from the breasts, then cut off the wings. Cut the breasts apart. Arrange all the pieces on a platter and serve.",
+
+	"https://www.foodnetwork.com/fnk/recipes/spatchcock-chicken-with-lemon-butter-7151507",
+
+	15,
+	60,
+	"Entree",
+	5,
+	1
+
+	)
 
 
 ;
