@@ -7,7 +7,7 @@ CREATE TABLE "grocerylist" (
 	"id"	        INTEGER,
 	"name"          TEXT NOT NULL UNIQUE,
 	"purchased"     INTEGER NOT NULL,
-	PRIMARY KEY("listID")
+	PRIMARY KEY("id")
 );
 
 CREATE TABLE "instock" (
