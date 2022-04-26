@@ -28,6 +28,7 @@ export const RecipeListRow = (props) => (
       <button
         className="btn btn-remove"
         onClick={() => props.handleRecipeRemove(props.recipe.id, props.recipe.name)}>
+        {/* onClick={() => props.handleRecipeRemove(props.key, props.recipe.name)}> */}
         Remove recipe
       </button>
     </td>

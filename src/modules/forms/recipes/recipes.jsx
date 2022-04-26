@@ -104,7 +104,7 @@ export const Recipes = () => {
   const handleRecipeRemove = (id, title) => {
     // Send PUT request to 'books/delete' endpoint
     axios
-      .put('http://localhost:4001/recipe/delete', { id: id })
+      .put('http://localhost:4001/recipes/delete', { id: id })
       .then(() => {
         console.log(`Recipe ${title} removed.`)
 
