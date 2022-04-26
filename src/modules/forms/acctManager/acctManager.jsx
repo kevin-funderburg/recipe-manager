@@ -25,6 +25,7 @@ function AcctManager() {
       sx={{
         height: "auto",
         width: "100%",
+        bgcolor: "beige",
         maxheight: false,
         maxwidth: false,
         "& .MuiTextField-root": { m: 3.3, width: "30ch" },
@@ -41,7 +42,7 @@ function AcctManager() {
       noValidate
       autoComplete="off"
     >
-      <div className="mainContainer">
+      <div>
         <Paper
           elevation={3}
           sx={{
