@@ -12,14 +12,19 @@ CREATE TABLE "grocerylist" (
 
 CREATE TABLE "instock" (
 	"itemID"	        INTEGER,
+	"name"			TEXT
 	"inStock"       INTEGER NOT NULL,
 	PRIMARY KEY("itemID")
 );
 
 CREATE TABLE "users" (
-	"id"	        INTEGER,
+	"id"	      INTEGER,
 	"email"       TEXT,
 	"password"    TEXT,
+	"firstname"   TEXT,
+	"lastname"    TEXT,
+	"location"    TEXT,
+	"contact"     TEXT,
 	PRIMARY KEY("id")
 );
 

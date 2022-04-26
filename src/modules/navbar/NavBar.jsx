@@ -60,6 +60,9 @@ function Navbar() {
           <Link to="/groceryList" className={classes.link}>
             Grocery List
           </Link>
+          <Link to="/instock" className={classes.link}>
+            In Stock
+          </Link>
           <Link to="/login" className={classes.link}>
             Login
           </Link>

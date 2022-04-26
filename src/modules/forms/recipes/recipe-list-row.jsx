@@ -26,6 +26,14 @@ export const RecipeListRow = (props) => (
 
     <td className="table-item">
       <button
+        className="btn btn-addtogrocerylist"
+        onClick={() => props.handleRecipeRemove(props.recipe.id, props.recipe.name)}>
+        Add to GroceryList
+      </button>
+    </td>
+
+    <td className="table-item">
+      <button
         className="btn btn-remove"
         onClick={() => props.handleRecipeRemove(props.recipe.id, props.recipe.name)}>
         {/* onClick={() => props.handleRecipeRemove(props.key, props.recipe.name)}> */}

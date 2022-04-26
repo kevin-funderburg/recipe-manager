@@ -26,6 +26,14 @@ const theme = createTheme({
   },
 });
 
+/*
+TODO:
+
+1. Add grocery list functionality
+2. Add in stock module
+3. 
+*/
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
