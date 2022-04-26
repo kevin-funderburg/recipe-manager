@@ -24,7 +24,6 @@ function AcctManager() {
       component="div"
       sx={{
         height: "auto",
-        bgcolor: "blue",
         width: "100vw",
         maxheight: false,
         maxwidth: false,
