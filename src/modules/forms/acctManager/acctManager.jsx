@@ -41,7 +41,7 @@ function AcctManager() {
       noValidate
       autoComplete="off"
     >
-      <div className="mainContainer">
+      <div>
         <Paper
           elevation={3}
           sx={{

@@ -5,9 +5,17 @@ import {
   CssBaseline,
   Typography,
   makeStyles,
-  useTheme
+  useTheme,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: orange[400],
+    },
+  },
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {
