@@ -6,7 +6,6 @@ import Download from './modules/forms/download/download'
 import Home from './modules/pages/home'
 import About from './modules/pages/about/about'
 import Navbar from './modules/navbar/NavBar.jsx'
-import RecipeList from './modules/forms/RecipeList/RecipeList'
 import GroceryList from './modules/forms/GroceryList/GroceryList'
 import AcctManager from './modules/forms/acctManager/acctManager'
 

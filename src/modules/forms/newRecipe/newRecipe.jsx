@@ -16,6 +16,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 // import { Formik } from 'formik';
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Image from "../../../styles/background.jpg";
 
 function NewRecipe() {
   //prepare states
@@ -152,8 +153,9 @@ function NewRecipe() {
     <Box
       component="div"
       sx={{
-        height: "auto",
-        width: "100%",
+        height: "92vh",
+        width: "100vw",
+        backgroundImage: `url(${Image})`,
         maxheight: false,
         maxwidth: false,
         "& .MuiTextField-root": { m: "7%", width: "70%" },
@@ -171,7 +173,7 @@ function NewRecipe() {
       noValidate
       autoComplete="off"
     >
-      <div className="mainContainer">
+      <div>
         <Paper
           elevation={3}
           sx={{

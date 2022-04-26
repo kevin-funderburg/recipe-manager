@@ -9,17 +9,9 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: orange[400],
-    },
-  },
-});
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "#6A5638",
+    backgroundColor: "#ff6600",
   },
   navlinks: {
     display: "flex",

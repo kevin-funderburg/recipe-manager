@@ -24,7 +24,8 @@ function AcctManager() {
       component="div"
       sx={{
         height: "auto",
-        width: "100%",
+        bgcolor: "blue",
+        width: "100vw",
         maxheight: false,
         maxwidth: false,
         "& .MuiTextField-root": { m: 3.3, width: "30ch" },

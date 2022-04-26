@@ -29,7 +29,7 @@ function Login() {
             justifyContent: "center",
           }}
         >
-          <Typography variant="h2" color="gray">
+          <Typography variant="h2" color="#ff6600">
             Welcome!
           </Typography>
           <Typography variant="h2" color="initial">
