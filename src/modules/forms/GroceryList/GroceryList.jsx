@@ -228,13 +228,13 @@ export default function GroceryList() {
         backgroundImage: `url(${Image})`,
       }}
     >
-      <Paper sx={{ width: "60vw", mb: 2, ml: "auto", mr: "auto" }}>
+      <Paper elevation={3} sx={{ width: "50vw", ml: "auto", mr: "auto" }}>
         <EnhancedTableToolbar
           numSelected={selected.length}
           handleDelete={handleDeleteItem}
         />
         <TableContainer>
-          <Table sx={{ minWidth: 750 }} aria-label="grocery table">
+          <Table sx={{ minWidth: "30vw" }} aria-label="grocery table">
             <EnhancedTableHead
               numSelected={selected.length}
               onSelectAllClick={handleSelectAllClick}

@@ -8,6 +8,7 @@ import About from './modules/pages/about/about'
 import Navbar from './modules/navbar/NavBar.jsx'
 import GroceryList from './modules/forms/GroceryList/GroceryList'
 import AcctManager from './modules/forms/acctManager/acctManager'
+import Home from './modules/pages/home/index.jsx'
 
 import {
   BrowserRouter as Router,
@@ -49,7 +50,7 @@ function App() {
         <Route path="/myRecipes" element={<Recipes />}></Route>
         <Route path="/groceryList" element={<GroceryList />}></Route>
         <Route path="/myAccount" element={<AcctManager />}></Route>
-        <Route path="/inStock" element={<GroceryList />}></Route>
+        <Route path="/inStock" element={<Home />}></Route>
       </Routes>
 
     </Router>

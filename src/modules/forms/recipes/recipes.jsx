@@ -237,13 +237,16 @@ export default function RecipeList() {
         backgroundImage: `url(${Image})`,
       }}
     >
-      <Paper sx={{ width: "60vw", mb: 2, ml: "auto", mr: "auto" }}>
+      <Paper
+        elevation={3}
+        sx={{ width: "60vw", mb: 2, ml: "auto", mr: "auto" }}
+      >
         <EnhancedTableToolbar
           numSelected={selected.length}
           handleDelete={handleDeleteItem}
         />
         <TableContainer>
-          <Table sx={{ minWidth: 750 }} aria-label="recipe list">
+          <Table sx={{ minWidth: "60vw" }} aria-label="recipe list">
             <EnhancedTableHead
               numSelected={selected.length}
               onSelectAllClick={handleSelectAllClick}
