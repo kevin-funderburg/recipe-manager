@@ -7,6 +7,8 @@ import { RecipeList } from "./recipe-list";
 
 // Import styles
 import "./../../../styles/bookshelf.css";
+import { Box, Grid, Paper } from "@mui/material";
+import Image from "../../../styles/background.jpg";
 
 // Create Bookshelf component
 export const Recipes = () => {
@@ -148,13 +150,29 @@ export const Recipes = () => {
   };
 
   return (
-    <div className="recipe-list-wrapper">
-      <RecipeList
-        recipes={recipes}
-        loading={loading}
-        handleRecipeRemove={handleRecipeRemove}
-      />
-    </div>
+    <Box
+      component="div"
+      sx={{
+        height: "92vh",
+        width: "100vw",
+        display: "flex",
+        justify: "center",
+        textAlign: "center",
+        flexDirection: "column",
+        justifyContent: "center",
+        backgroundImage: `url(${Image})`,
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <div className="recipe-list-wrapper">
+        <RecipeList
+          recipes={recipes}
+          loading={loading}
+          handleRecipeRemove={handleRecipeRemove}
+        />
+      </div>
+    </Box>
   );
 };
 

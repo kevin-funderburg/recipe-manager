@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "#ff6600",
+    backgroundColor: "#E04D01",
   },
   navlinks: {
     display: "flex",
@@ -19,17 +19,19 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     flexGrow: "1",
     cursor: "pointer",
-    fontSize: "3.5ch",
+    fontSize: "200%",
   },
   link: {
     textDecoration: "none",
     color: "white",
-    fontSize: "2.5ch",
-    marginLeft: theme.spacing(10),
-    marginRight: theme.spacing(3),
+    fontSize: "140%",
+    marginLeft: theme.spacing(4),
+    marginRight: theme.spacing(4),
+    borderLeft: "1px solid white",
+    paddingLeft: theme.spacing(2),
     "&:hover": {
-      color: "yellow",
-      borderBottom: "1px solid white",
+      color: "#2A2550",
+      borderBottom: "none",
     },
   },
 }));
@@ -60,11 +62,11 @@ function Navbar() {
           <Link to="/groceryList" className={classes.link}>
             Grocery List
           </Link>
-          <Link to="/instock" className={classes.link}>
+          <Link to="/inStock" className={classes.link}>
             In Stock
           </Link>
-          <Link to="/login" className={classes.link}>
-            Login
+          <Link to="/" className={classes.link}>
+            Log Out
           </Link>
         </div>
       </Toolbar>
