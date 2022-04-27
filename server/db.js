@@ -63,13 +63,12 @@ knex.schema
     .then((exists) => {
       if (!exists) {
         // If no "grocerylist" table exists
-        // create new, with "id", "name" and "purchased"
+        // create new, with "id", "name" 
         // and use "id" as a primary identification
         // and increment "id" with every new record (item)
         return knex.schema.createTable('grocerylist', (table)  => {
           table.increments('id').primary()
           table.string('name')
-          table.integer('purchased')
         })
         .then(() => {
           // Log success message

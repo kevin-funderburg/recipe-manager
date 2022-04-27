@@ -34,7 +34,6 @@ export const RecipeListRow = (props) => (
           props.handleRecipeRemove(props.recipe.id, props.recipe.name)
         }
       >
-        {/* onClick={() => props.handleRecipeRemove(props.key, props.recipe.name)}> */}
         Remove recipe
       </button>
     </td>
