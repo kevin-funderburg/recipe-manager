@@ -14,10 +14,7 @@ import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import Switch from "@mui/material/Switch";
 import DeleteIcon from "@mui/icons-material/Delete";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import { visuallyHidden } from "@mui/utils";
 import axios from "axios";
 import Image from "../../../styles/background.jpg";
 
@@ -37,7 +34,7 @@ function EnhancedTableHead(props) {
   const { onSelectAllClick, numSelected, rowCount } = props;
 
   return (
-    <TableHead>
+    <TableHead sx={{ borderTop: "1px solid black" }}>
       <TableRow>
         {headCells.map((headCell) => (
           <TableCell
@@ -69,7 +66,7 @@ EnhancedTableHead.propTypes = {
 //---------------------------------------------------------------------------
 
 const EnhancedTableToolbar = (props) => {
-  const { numSelected } = props;
+  const { numSelected, handleDelete } = props;
 
   return (
     <Toolbar
@@ -107,7 +104,7 @@ const EnhancedTableToolbar = (props) => {
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
-          <IconButton>
+          <IconButton onClick={handleDelete}>
             <DeleteIcon />
           </IconButton>
         </Tooltip>
@@ -118,6 +115,7 @@ const EnhancedTableToolbar = (props) => {
 
 EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 //-------------------------------------------------------------------------------------
@@ -150,18 +148,18 @@ export default function GroceryList() {
   };
 
   // Remove a grocery item
-  const handleGroceryItemRemove = (id, name) => {
+  const handleGroceryItemRemove = (id) => {
     // Send PUT request to 'groceries/delete' endpoint
     axios
       .put("http://localhost:4001/groceries/delete", { id: id })
       .then(() => {
-        console.log(`Item ${name} removed.`);
+        console.log(`Item ${id} removed.`);
 
         // Fetch all groceries to refresh
         fetchGroceryListItems();
       })
       .catch((error) =>
-        console.error(`There was an error removing the ${name} item: ${error}`)
+        console.error(`There was an error removing the ${id} item: ${error}`)
       );
   };
 
@@ -194,6 +192,14 @@ export default function GroceryList() {
     setSelected(newSelected);
   };
 
+  const handleDeleteItem = () => {
+    console.log(selected);
+    selected.map((n) => {
+      handleGroceryItemRemove(n);
+    });
+    setSelected([]);
+  };
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -212,12 +218,21 @@ export default function GroceryList() {
   return (
     <Box
       sx={{
+        height: "92vh",
         width: "100vw",
+        display: "flex",
+        justify: "center",
+        textAlign: "center",
+        flexDirection: "column",
+        justifyContent: "center",
         backgroundImage: `url(${Image})`,
       }}
     >
-      <Paper sx={{ width: "100vw", mb: 2 }}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+      <Paper sx={{ width: "60vw", mb: 2, ml: "auto", mr: "auto" }}>
+        <EnhancedTableToolbar
+          numSelected={selected.length}
+          handleDelete={handleDeleteItem}
+        />
         <TableContainer>
           <Table sx={{ minWidth: 750 }} aria-label="grocery table">
             <EnhancedTableHead
@@ -242,7 +257,7 @@ export default function GroceryList() {
                       selected={isItemSelected}
                     >
                       <TableCell component="th" id={labelId} scope="row">
-                        {grocery.id}
+                        {index + 1}
                       </TableCell>
                       <TableCell align="left">{grocery.name}</TableCell>
                       <TableCell padding="checkbox">
