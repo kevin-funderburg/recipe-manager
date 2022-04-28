@@ -3,25 +3,28 @@ import './download.css';
 import { TextField, Button} from '@mui/material';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
-import callscript from '../../../lib/callscript'
+// import callscript from '../../../lib/callscript'
 
-// function callscript() {
-//     const {spawn} = require('child_process').spawn;
 
-//     const childPython = spawn('python3', ['src/lib/download.py', 'www.someurl.com']);
+const callscript = () => {
+    console.log("entering callscript");
+    var spawn = require('child_process');
+    console.log("spawn made");
 
-//     childPython.stdout.on('data', (data) => {
-//         console.log(`stdout: ${data}`);
-//     });
+    var childPython = spawn('python3', ['src/lib/download.py', 'www.someurl.com']);
 
-//     childPython.stderr.on('data', (data) => {
-//         console.error(`stderr: ${data}`);
-//     });
+    childPython.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+    });
 
-//     childPython.on('close', (code) => {
-//         console.log(`child process exited with code ${code}`);
-//     });
-// }
+    childPython.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
+
+    childPython.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+    });
+}
 
 function Download(){
     return (

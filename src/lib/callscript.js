@@ -1,4 +1,4 @@
-const {spawn} = require('child_process').spawn;
+const {spawn} = require('child_process');
 
 const childPython = spawn('python3', ['src/lib/download.py', 'www.someurl.com']);
 
