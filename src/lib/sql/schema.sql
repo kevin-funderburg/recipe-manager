@@ -5,7 +5,6 @@ DROP TABLE IF EXISTS InStock;
 CREATE TABLE "GroceryList" (
 	"listID"	        INTEGER,
 	"name"          TEXT NOT NULL UNIQUE,
-	"purchased"     INTEGER NOT NULL,
 	PRIMARY KEY("listID")
 );
 

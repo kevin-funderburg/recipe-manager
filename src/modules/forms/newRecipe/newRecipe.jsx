@@ -155,20 +155,12 @@ function NewRecipe() {
       sx={{
         height: "92vh",
         width: "100vw",
+        display: "flex",
+        justify: "center",
+        textAlign: "center",
+        flexDirection: "column",
+        justifyContent: "center",
         backgroundImage: `url(${Image})`,
-        maxheight: false,
-        maxwidth: false,
-        "& .MuiTextField-root": { m: "7%", width: "70%" },
-        "& .MuiButton-root": {
-          width: "auto",
-          fontSize: "100%",
-          marginTop: "7%",
-          marginBottom: "7%",
-          bgcolor: "#826F66",
-          ":hover": {
-            bgcolor: "#C69B7B",
-          },
-        },
       }}
       noValidate
       autoComplete="off"
@@ -177,13 +169,25 @@ function NewRecipe() {
         <Paper
           elevation={3}
           sx={{
-            p: 2,
-            textAlign: "center",
-            mt: "auto",
-            mb: "auto",
+            width: "60%",
+            "& .MuiTextField-root": {
+              marginTop: "6%",
+              marginBottom: "6%",
+              width: "90%",
+            },
+            "& .MuiButton-root": {
+              width: "auto",
+              fontSize: "100%",
+              marginTop: "7%",
+              marginBottom: "7%",
+              bgcolor: "#E04D01",
+              ":hover": {
+                bgcolor: "#FF7700",
+              },
+            },
             ml: "auto",
             mr: "auto",
-            justify: "center",
+            p: 2,
             borderRadius: 10,
           }}
         >
@@ -227,7 +231,7 @@ function NewRecipe() {
                 />
               </Grid>
             </Grid>
-            <hr></hr>
+
             <Grid container spacing={2}>
               <Grid item xs={4}>
                 <TextField
@@ -262,7 +266,7 @@ function NewRecipe() {
                 />
               </Grid>
             </Grid>
-            <hr></hr>
+
             <Grid container spacing={2}>
               <Grid item xs={4}>
                 <FormControl sx={{ m: "7%", minWidth: "50%" }}>

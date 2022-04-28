@@ -6,7 +6,6 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE "grocerylist" (
 	"id"	        INTEGER,
 	"name"          TEXT NOT NULL UNIQUE,
-	"purchased"     INTEGER NOT NULL,
 	PRIMARY KEY("id")
 );
 
@@ -212,3 +211,5 @@ pepper",
 
 
 ;
+
+INSERT INTO grocerylist(name) VALUES ("Butter"), ("Cheese"), ("Bacon"), ("Eggs"), ("Olive Oil"), ("Bread"), ("Red Onions"), ('Bell Pepper');

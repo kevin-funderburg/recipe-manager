@@ -7,6 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Image from "../../../styles/background.jpg";
 // import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 // import { Formik } from 'formik';
 
@@ -16,27 +17,20 @@ function AcctManager() {
   const [email, setEmail] = useState("");
   const [contact, setContact] = useState("");
   const [location, setLocation] = useState("");
-  const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
 
   return (
     <Box
       component="div"
       sx={{
-        height: "auto",
+        height: "92vh",
         width: "100vw",
-        maxheight: false,
-        maxwidth: false,
-        "& .MuiTextField-root": { m: 3.3, width: "30ch" },
-        "& .MuiButton-root": {
-          width: "16ch",
-          fontSize: "1.7ch",
-          marginLeft: "20ch",
-          bgcolor: "#826F66",
-          ":hover": {
-            bgcolor: "#C69B7B",
-          },
-        },
+        display: "flex",
+        justify: "center",
+        textAlign: "center",
+        flexDirection: "column",
+        justifyContent: "center",
+        backgroundImage: `url(${Image})`,
       }}
       noValidate
       autoComplete="off"
@@ -45,12 +39,25 @@ function AcctManager() {
         <Paper
           elevation={3}
           sx={{
+            width: "50%",
+            "& .MuiTextField-root": {
+              marginTop: "6%",
+              marginBottom: "6%",
+              width: "90%",
+            },
+            "& .MuiButton-root": {
+              width: "auto",
+              fontSize: "100%",
+              marginTop: "7%",
+              marginBottom: "7%",
+              bgcolor: "#E04D01",
+              ":hover": {
+                bgcolor: "#FF7700",
+              },
+            },
             p: 2,
-            mt: 13,
-            mb: 13,
-            ml: 20,
-            mr: 20,
-            justifyContent: "center",
+            ml: "auto",
+            mr: "auto",
             borderRadius: 10,
           }}
         >
@@ -113,8 +120,12 @@ function AcctManager() {
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <Typography
-                  variant="body1"
-                  sx={{ textAlign: "center", paddingTop: "5ch" }}
+                  variant="body2"
+                  sx={{
+                    textAlign: "center",
+                    paddingTop: "10%",
+                    paddingLeft: "10%",
+                  }}
                 >
                   Would you like to change your email address?
                 </Typography>
@@ -134,8 +145,8 @@ function AcctManager() {
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <Typography
-                  variant="body1"
-                  sx={{ textAlign: "center", paddingTop: "5ch" }}
+                  variant="body2"
+                  sx={{ textAlign: "center", paddingTop: "10%" }}
                 >
                   Would you like to change your password?
                 </Typography>

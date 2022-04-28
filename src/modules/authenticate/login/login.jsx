@@ -29,10 +29,10 @@ function Login() {
             justifyContent: "center",
           }}
         >
-          <Typography variant="h2" color="#ff6600">
+          <Typography variant="h2" color="#E04D01">
             Welcome!
           </Typography>
-          <Typography variant="h2" color="initial">
+          <Typography variant="h2" color="#E04D01">
             Please Log In
           </Typography>
         </Box>
@@ -63,14 +63,12 @@ function Login() {
                 fontSize: "100%",
                 marginTop: "7%",
                 marginBottom: "7%",
-                bgcolor: "#826F66",
+                bgcolor: "#E04D01",
                 ":hover": {
-                  bgcolor: "#C69B7B",
+                  bgcolor: "#FF7700",
                 },
               },
               p: 2,
-              mt: "auto",
-              mb: "auto",
               ml: "auto",
               mr: "auto",
               justify: "center",
@@ -133,19 +131,19 @@ function Login() {
               component={Link}
               to={{ pathname: "/myAccount" }}
               variant="link"
-              color="blue"
+              color="#E04D01"
               sx={{ display: "block", marginBottom: "1%" }}
             >
               Forgot Password?
             </Typography>
-            <Typography variant="link" color="blue" sx={{ display: "inline" }}>
+            <Typography variant="link" color="black" sx={{ display: "inline" }}>
               Don't have an account?
             </Typography>
             <Typography
               component={Link}
-              to={{ pathname: "/myAccount" }}
+              to={{ pathname: "/signup" }}
               variant="link"
-              color="green"
+              color="#E04D01"
               sx={{}}
             >
               Sign up
