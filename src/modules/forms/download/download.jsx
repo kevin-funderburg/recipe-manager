@@ -3,6 +3,25 @@ import './download.css';
 import { TextField, Button} from '@mui/material';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
+import callscript from '../../../lib/callscript'
+
+// function callscript() {
+//     const {spawn} = require('child_process').spawn;
+
+//     const childPython = spawn('python3', ['src/lib/download.py', 'www.someurl.com']);
+
+//     childPython.stdout.on('data', (data) => {
+//         console.log(`stdout: ${data}`);
+//     });
+
+//     childPython.stderr.on('data', (data) => {
+//         console.error(`stderr: ${data}`);
+//     });
+
+//     childPython.on('close', (code) => {
+//         console.log(`child process exited with code ${code}`);
+//     });
+// }
 
 function Download(){
     return (
@@ -34,7 +53,11 @@ function Download(){
                                 variant='contained' 
                                 color='primary'>CANCEL
                             </Button>
-                            <Button variant='contained' color='primary'>OK</Button>
+                            <Button variant='contained' onClick={callscript}
+                            color='primary'>OK</Button>
+
+                            {/* <Button variant='contained'
+                            color='primary'>OK</Button> */}
                     </div>
                 </div>
             </div>
