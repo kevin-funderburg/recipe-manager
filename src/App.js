@@ -31,7 +31,19 @@ TODO:
 
 1. Add grocery list functionality
 2. Add in stock module
-3. 
+3. Test cases
+  - add users
+  - add recipe
+  - remove recipe
+  - add to grocery list
+  - delete from grocery list
+  - update user
+  - update recipe
+  - remove user
+4. System statechart diagrams
+5. Textual description of the structure of your system and implemented algorithms 
+  critical for the system's behavior (if you implemented some complex algorithm from scratch)
+6. 
 */
 
 function App() {
