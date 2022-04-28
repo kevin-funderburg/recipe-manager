@@ -4,19 +4,23 @@
 const knex = require('../db')
 
 // Retrieve all recipes
-exports.usersAll = async (req, res) => {
+exports.callscript = async (req, res) => {
   // Get all recipes from database
-  knex
-    .select('*') // select all records
-    .from('recipes') // from 'recipes' table
-    .then(userData => {
-      // Send recipes extracted from database in response
-      res.json(userData)
-    })
-    .catch(err => {
-      // Send a error message in response
-      res.json({ message: `There was an error retrieving recipes: ${err}` })
-    })
+  const {spawn} = require('child_process');
+
+  const childPython = spawn('python3', ['src/lib/download.py', req.body.url]);
+  
+  childPython.stdout.on('data', (data) => {
+      console.log(`stdout: ${data}`);
+  });
+  
+  childPython.stderr.on('data', (data) => {
+      console.error(`stderr: ${data}`);
+  });
+  
+  childPython.on('close', (code) => {
+      console.log(`child process exited with code ${code}`);
+  });
 }
 
 // Create new recipe

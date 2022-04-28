@@ -2,7 +2,9 @@ import sys
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 import requests
+import sqlite3
 
+dbpath = "/Users/kevinfunderburg/code/recipe-manager/server/db/database.sqlite"
 
 def getHTML(url):
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})

@@ -12,7 +12,8 @@ const downloadRouter = express.Router()
 // Add route for GET request to retrieve all download
 // In server.js, download route is specified as '/download'
 // this means that '/all' translates to '/download/all'
-downloadRouter.get('/all', downloadRoutes.downloadAll)
+// downloadRouter.get('/callscript', downloadRoutes.callscript)
+downloadRouter.post('/callscript', downloadRoutes.callscript)
 
 // Add route for POST request to create new download
 // In server.js, download route is specified as '/download'

@@ -28,6 +28,9 @@ app.use(bodyParser.json())
 // Implement recipes route
 app.use('/recipes', recipesRouter)
 
+// Implement recipes route
+app.use('/download', downloadRouter)
+
 // Implement groceries route
 app.use('/groceries', groceriesRouter)
 

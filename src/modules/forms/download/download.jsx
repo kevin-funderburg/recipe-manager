@@ -6,24 +6,33 @@ import { Link } from 'react-router-dom';
 // import callscript from '../../../lib/callscript'
 
 
-const callscript = () => {
-    console.log("entering callscript");
-    var spawn = require('child_process');
-    console.log("spawn made");
+  // Add New Recipe
+  const handleCallscript = () => {
+    // Send POST request to 'recipes/create' endpoint
+    axios
+      .post("http://localhost:4001/download/callscript", {
+        name: name,
+        description: description,
+        ingredients: ingredients,
+        directions: directions,
+        link: link,
+        prepTime: prepTime,
+        cookTime: cookTime,
+        category: category,
+        favorite: favorite,
+        rating: rating,
+      })
+      .then((res) => {
+        console.log(res.data);
 
-    var childPython = spawn('python3', ['src/lib/download.py', 'www.someurl.com']);
-
-    childPython.stdout.on('data', (data) => {
-        console.log(`stdout: ${data}`);
-    });
-
-    childPython.stderr.on('data', (data) => {
-        console.error(`stderr: ${data}`);
-    });
-
-    childPython.on('close', (code) => {
-        console.log(`child process exited with code ${code}`);
-    });
+        // Fetch all recipes to refresh
+        // the recipes on the Recipe list
+        fetchRecipes();
+      })
+      .catch((error) =>
+        console.error(`There was an error adding the ${name} recipe: ${error}`)
+      );
+  };
 }
 
 function Download(){
