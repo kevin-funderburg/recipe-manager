@@ -24,6 +24,11 @@ recipeRouter.post('/create', recipesRoutes.recipesCreate)
 // this means that '/delete' translates to '/recipes/delete'
 recipeRouter.put('/delete', recipesRoutes.recipesDelete)
 
+// Add route for PUT request to delete specific recipe
+// In server.js, recipes route is specified as '/recipes'
+// this means that '/delete' translates to '/recipes/delete'
+recipeRouter.put('/addToGrocery', recipesRoutes.recipesAddToGrocery)
+
 // Add route for PUT request to reset recipes list
 // In server.js, recipes route is specified as '/recipes'
 // this means that '/reset' translates to '/recipes/reset'

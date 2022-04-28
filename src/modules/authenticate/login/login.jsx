@@ -29,10 +29,10 @@ function Login() {
             justifyContent: "center",
           }}
         >
-          <Typography variant="h2" color="#E04D01">
+          <Typography variant="h2" color="white">
             Welcome!
           </Typography>
-          <Typography variant="h2" color="#E04D01">
+          <Typography variant="h2" color="white">
             Please Log In
           </Typography>
         </Box>
@@ -118,7 +118,7 @@ function Login() {
                   id="button-login"
                   name="login"
                   to={{
-                    pathname: "/myAccount",
+                    pathname: "/myRecipes",
                   }}
                   variant="contained"
                   color="primary"

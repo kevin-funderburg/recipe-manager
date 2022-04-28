@@ -46,6 +46,23 @@ exports.recipesCreate = async (req, res) => {
     })
 }
 
+// Create new recipe
+exports.recipesAddToGrocery = async (req, res) => {
+  // Add new recipe to database
+  knex('grocerylist')
+    .insert({ // insert new record, a recipe
+      'name': req.body.ingredients,
+    })
+    .then(() => {
+      // Send a success message in response
+      res.json({ message: `Ingredients \'${req.body.ingredients}\' added to grocery list.` })
+    })
+    .catch(err => {
+      // Send a error message in response
+      res.json({ message: `There was an error adding ${req.body.ingredients} grocery item: ${err}` })
+    })
+}
+
 // Remove specific recipe
 exports.recipesDelete = async (req, res) => {
   // Find specific recipe in the database and remove it

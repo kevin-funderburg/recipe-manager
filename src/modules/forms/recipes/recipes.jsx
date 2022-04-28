@@ -17,6 +17,8 @@ import Tooltip from "@mui/material/Tooltip";
 import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
 import Image from "../../../styles/background.jpg";
+import { Rating } from "@mui/material";
+import { Modal } from "@mui/material";
 
 const headCells = [
   {
@@ -48,10 +50,19 @@ function EnhancedTableHead(props) {
   const { onSelectAllClick, numSelected, rowCount } = props;
 
   return (
-    <TableHead sx={{ borderTop: "1px solid black" }}>
+    <TableHead
+      sx={{
+        borderTop: "1px solid rgba(224, 224, 224, 1)",
+      }}
+    >
       <TableRow>
         {headCells.map((headCell) => (
-          <TableCell key={headCell.id}>{headCell.label}</TableCell>
+          <TableCell
+            key={headCell.id}
+            sx={{ fontWeight: "900", fontSize: "110%" }}
+          >
+            {headCell.label}
+          </TableCell>
         ))}
         <TableCell padding="checkbox">
           <Checkbox
@@ -80,6 +91,7 @@ const EnhancedTableToolbar = (props) => {
   return (
     <Toolbar
       sx={{
+        bgcolor: "#FF7700",
         pl: { sm: 2 },
         pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
@@ -102,7 +114,7 @@ const EnhancedTableToolbar = (props) => {
         </Typography>
       ) : (
         <Typography
-          sx={{ flex: "1 1 100%" }}
+          sx={{ flex: "1 1 100%", color: "white" }}
           variant="h6"
           id="tableTitle"
           component="div"
@@ -128,12 +140,26 @@ EnhancedTableToolbar.propTypes = {
 };
 
 //-------------------------------------------------------------------------------------
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 export default function RecipeList() {
   const [recipeList, setRecipeList] = useState([]);
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   //fetch all recipeList items on initail render
   useEffect(() => {
@@ -169,6 +195,24 @@ export default function RecipeList() {
       })
       .catch((error) =>
         console.error(`There was an error removing the ${id} item: ${error}`)
+      );
+  };
+
+  // Add item to grocery list
+  const handleGroceryListAddItem = (id) => {
+    // Send PUT request to 'recipes/delete' endpoint
+    axios
+      .put("http://localhost:4001/recipes/addToGrocery", { id: id })
+      .then(() => {
+        console.log(`Item ${id} added to grocery.`);
+
+        // Fetch all recipes to refresh
+        fetchRecipeList();
+      })
+      .catch((error) =>
+        console.error(
+          `There was an error adding the ${id} item to grocery: ${error}`
+        )
       );
   };
 
@@ -261,7 +305,7 @@ export default function RecipeList() {
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, recipe.id)}
+                      onClick={handleOpen}
                       key={recipe.id}
                       role="checkbox"
                       aria-checked={isItemSelected}
@@ -275,11 +319,18 @@ export default function RecipeList() {
                       <TableCell align="left">{recipe.category}</TableCell>
                       <TableCell align="left">{recipe.prep_time}</TableCell>
                       <TableCell align="left">{recipe.cook_time}</TableCell>
-                      <TableCell align="left">{recipe.rating}</TableCell>
+                      <TableCell align="left">
+                        <Rating
+                          name="read-only"
+                          value={recipe.rating}
+                          readOnly
+                        />
+                      </TableCell>
                       <TableCell padding="checkbox">
                         <Checkbox
                           color="primary"
                           checked={isItemSelected}
+                          onClick={(event) => handleClick(event, recipe.id)}
                           inputProps={{
                             "aria-labelledby": labelId,
                           }}

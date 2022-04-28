@@ -34,12 +34,17 @@ function EnhancedTableHead(props) {
   const { onSelectAllClick, numSelected, rowCount } = props;
 
   return (
-    <TableHead sx={{ borderTop: "1px solid black" }}>
+    <TableHead
+      sx={{
+        borderTop: "1px solid rgba(224, 224, 224, 1)",
+      }}
+    >
       <TableRow>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? "right" : "left"}
+            sx={{ fontWeight: "900", fontSize: "110%" }}
           >
             {headCell.label}
           </TableCell>
@@ -71,6 +76,7 @@ const EnhancedTableToolbar = (props) => {
   return (
     <Toolbar
       sx={{
+        bgcolor: "#FF7700",
         pl: { sm: 2 },
         pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
@@ -93,7 +99,7 @@ const EnhancedTableToolbar = (props) => {
         </Typography>
       ) : (
         <Typography
-          sx={{ flex: "1 1 100%" }}
+          sx={{ flex: "1 1 100%", color: "white" }}
           variant="h6"
           id="tableTitle"
           component="div"
