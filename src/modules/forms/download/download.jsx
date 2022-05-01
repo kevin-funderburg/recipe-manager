@@ -11,16 +11,7 @@ import { Link } from 'react-router-dom';
     // Send POST request to 'recipes/create' endpoint
     axios
       .post("http://localhost:4001/download/callscript", {
-        name: name,
-        description: description,
-        ingredients: ingredients,
-        directions: directions,
-        link: link,
-        prepTime: prepTime,
-        cookTime: cookTime,
-        category: category,
-        favorite: favorite,
-        rating: rating,
+        url: url
       })
       .then((res) => {
         console.log(res.data);
