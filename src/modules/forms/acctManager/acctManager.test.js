@@ -1,24 +1,21 @@
 import React from 'react';
 // use "screen" - a newer way to utilize query in 2020 
 import { render, screen } from '@testing-library/react';
-import NewRecipe from './newRecipe'; // component to test
+import AcctManager from './acctManager'; // component to test
 import { BrowserRouter as Router } from 'react-router-dom';
 
 const buttons = [
-    { text: 'DOWNLOAD' },
     { text: 'CANCEL' },
     { text: 'SAVE' },
 ]
 
 const textfields = [
-    { text: 'Recipe Name *' },
-    { text: 'Description *' },
-    { text: 'Ingredients' },
-    { text: 'Directions' },
-    { text: 'Link' },
-    { text: 'Category' },
-    { text: 'Prep Time *' },
-    { text: 'Cook Time *' },
+    { text: 'First Name' },
+    { text: 'Last Name' },
+    { text: 'Location' },
+    { text: 'Contact' },
+    { text: 'Email' },
+    { text: 'Password' },
 ]
 
 //TO DO: TEST entry
@@ -30,11 +27,11 @@ const textfields = [
 
 // I use test.each to iterate the test cases above
 test.each(buttons)(
-    "Test if all submit buttons exist",
+    "Test if all neccessary buttons exist",
     (buttons) => {
         render(
             <Router>
-                <NewRecipe />
+                <AcctManager />
             </Router>
         );
         //Ensure the text is in the dom, will throw error it can't find
@@ -51,11 +48,11 @@ test.each(textfields)(
     (textfields) => {
         render(
             <Router>
-                <NewRecipe />
+                <AcctManager />
             </Router>
         );
         //Ensure the text is in the dom, will throw error it can't find
-        const linkDom = screen.getByLabelText('Recipe Name *') ;
+        const linkDom = screen.getByLabelText(textfields.text) ;
 
         //use jest assertion to verify textfields property
         expect(linkDom).toBeInTheDocument();
