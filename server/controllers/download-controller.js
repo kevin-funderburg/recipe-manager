@@ -3,12 +3,32 @@
 // Import database
 const knex = require('../db')
 
-// Retrieve all recipes
-exports.callscript = async (req, res) => {
-  // Get all recipes from database
+// // Retrieve all recipes
+// exports.callscript = async (req, res) => {
+//   console.log('in download-controller exports.callscript')
+  // const {spawn} = require('child_process');
+
+  // const childPython = spawn('python3', ['src/lib/download.py', req.body.url]);
+  
+  // childPython.stdout.on('data', (data) => {
+  //     console.log(`stdout: ${data}`);
+  // });
+  
+  // childPython.stderr.on('data', (data) => {
+  //     console.error(`stderr: ${data}`);
+  // });
+  
+  // childPython.on('close', (code) => {
+  //     console.log(`child process exited with code ${code}`);
+  // });
+// }
+
+// Retrieve all groceries
+exports.downloadAll = async (req, res) => {
+  console.log('in download-controller exports.callscript')
   const {spawn} = require('child_process');
 
-  const childPython = spawn('python3', ['src/lib/download.py', req.body.url]);
+  const childPython = spawn('python3', ['src/lib/download.py', 'www.foodnetwork.com']);
   
   childPython.stdout.on('data', (data) => {
       console.log(`stdout: ${data}`);
@@ -21,6 +41,18 @@ exports.callscript = async (req, res) => {
   childPython.on('close', (code) => {
       console.log(`child process exited with code ${code}`);
   });
+  // Get all groceries from database
+  // knex
+  //   .select('*') // select all records
+  //   .from('grocerylist') // from 'grocerylist' table
+  //   .then(userData => {
+  //     // Send groceries extracted from database in response
+  //     res.json(userData)
+  //   })
+  //   .catch(err => {
+  //     // Send a error message in response
+  //     res.json({ message: `There was an error retrieving groceries: ${err}` })
+  //   })
 }
 
 // Create new recipe

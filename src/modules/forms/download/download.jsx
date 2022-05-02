@@ -3,28 +3,34 @@ import './download.css';
 import { TextField, Button} from '@mui/material';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
+import axios from "axios";
 // import callscript from '../../../lib/callscript'
 
 
-  // Add New Recipe
-  const handleCallscript = () => {
+// Add New Recipe
+const handleCallscript = (url) => {
+    console.log(`in handleCallScript`)
+    console.log(`the url is: ${url}`)
     // Send POST request to 'recipes/create' endpoint
     axios
-      .post("http://localhost:4001/download/callscript", {
-        url: url
-      })
-      .then((res) => {
+        .get("http://localhost:4001/download/all", {url: url})
+        .then((res) => {
         console.log(res.data);
-
-        // Fetch all recipes to refresh
-        // the recipes on the Recipe list
-        fetchRecipes();
-      })
-      .catch((error) =>
-        console.error(`There was an error adding the ${name} recipe: ${error}`)
-      );
-  };
-}
+            
+        })
+        .catch((error) =>
+        console.error(`There was an error adding the ${url}: ${error}`)
+        );
+    // axios
+    //     .post("http://localhost:4001/download/callscript", {url: url})
+    //     .then((res) => {
+    //     console.log(res.data);
+            
+    //     })
+    //     .catch((error) =>
+    //     console.error(`There was an error adding the ${url}: ${error}`)
+    //     );
+};
 
 function Download(){
     return (
@@ -56,7 +62,9 @@ function Download(){
                                 variant='contained' 
                                 color='primary'>CANCEL
                             </Button>
-                            <Button variant='contained' onClick={callscript}
+                            <Button variant='contained' 
+                            onClick={(event) => handleCallscript("www.foodnetwork.com")}
+                            // onClick={callscript}
                             color='primary'>OK</Button>
 
                             {/* <Button variant='contained'

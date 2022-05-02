@@ -10,6 +10,7 @@ const helmet = require('helmet')
 // Import routes
 const recipesRouter = require('./routes/recipes-route')
 const groceriesRouter = require('./routes/grocerylist-route')
+const downloadRouter = require('./routes/download-routes')
 
 // Set default port for express app
 const PORT = process.env.PORT || 4001
