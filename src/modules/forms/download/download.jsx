@@ -1,10 +1,28 @@
-import React from 'react';
+import {React, useState} from 'react';
 import './download.css';
 import { TextField, Button} from '@mui/material';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 function Download(){
+
+    const [url, setUrl] = useState("");
+
+    // call python script to import recipe via url
+    const handleCallscript = (url) => {
+        console.log(`in handleCallScript`)
+        console.log(`the url is: ${url}`)
+        axios
+            .post("http://localhost:4001/download/callscript", {url: url})
+            .then((res) => {
+                console.log(res.data);  
+            })
+            .catch((error) =>
+            console.error(`There was an error adding the ${url}: ${error}`)
+            );
+    };
+
     return (
         <Box
             component="form"
@@ -25,6 +43,8 @@ function Download(){
                                 id="url"
                                 label="URL"
                                 defaultValue="someting.foodnetwork.com"
+                                value={url}
+                                onChange={(e) => setUrl(e.target.value) } //Add your setVariable to this line
                             />
                             <br/><br/>
                             <Button component={Link}
@@ -34,7 +54,9 @@ function Download(){
                                 variant='contained' 
                                 color='primary'>CANCEL
                             </Button>
-                            <Button variant='contained' color='primary'>OK</Button>
+                            <Button variant='contained' 
+                            onClick={(event) => handleCallscript(url)}
+                            color='primary'>OK</Button>
                     </div>
                 </div>
             </div>
