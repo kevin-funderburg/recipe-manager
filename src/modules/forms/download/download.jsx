@@ -7,13 +7,12 @@ import axios from "axios";
 // import callscript from '../../../lib/callscript'
 
 
-// Add New Recipe
+// call python script to import recipe via url
 const handleCallscript = (url) => {
     console.log(`in handleCallScript`)
     console.log(`the url is: ${url}`)
-    // Send POST request to 'recipes/create' endpoint
     axios
-        .get("http://localhost:4001/download/all", {url: url})
+        .post("http://localhost:4001/download/callscript", {url: url})
         .then((res) => {
         console.log(res.data);
             
@@ -21,15 +20,6 @@ const handleCallscript = (url) => {
         .catch((error) =>
         console.error(`There was an error adding the ${url}: ${error}`)
         );
-    // axios
-    //     .post("http://localhost:4001/download/callscript", {url: url})
-    //     .then((res) => {
-    //     console.log(res.data);
-            
-    //     })
-    //     .catch((error) =>
-    //     console.error(`There was an error adding the ${url}: ${error}`)
-    //     );
 };
 
 function Download(){
