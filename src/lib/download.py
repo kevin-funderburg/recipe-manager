@@ -6,7 +6,8 @@ import requests
 import sqlite3
 from sqlite3 import Error
 
-dbpath = r"../../server/db/database.sqlite"
+# dbpath = r"../../server/db/database.sqlite"
+dbpath = r"server/db/database.sqlite"
 soup = None
 
 
