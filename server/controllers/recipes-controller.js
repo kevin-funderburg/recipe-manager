@@ -48,24 +48,37 @@ exports.recipesCreate = async (req, res) => {
 
 // Create new recipe
 exports.recipesAddToGrocery = async (req, res) => {
-  // Retrieve recipe with incoming id from recipes
-  const ingredients = knex('recipes').select('recipes.ingredients').where('id', '=', req.body.id)
-  
-  console.log(ingredients);
-  // Add ingredients to grocery list
+  // Add new recipe to database
   knex('grocerylist')
     .insert({ // insert new record, a recipe
-      'name': ingredients,
+      'name': req.body.ingredients,
     })
     .then(() => {
       // Send a success message in response
-      res.json({ message: `Ingredients \'${ingredients}\' added to grocery list.` })
+      res.json({ message: `Ingredients \'${req.body.ingredients}\' added to grocery list.` })
     })
     .catch(err => {
       // Send a error message in response
-      res.json({ message: `There was an error adding ${ingredients} grocery item: ${err}` })
+      res.json({ message: `There was an error adding ${req.body.ingredients} grocery item: ${err}` })
     })
 }
+
+// // Create new recipe
+// exports.recipesAddToGrocery = async (req, res) => {
+//   // Add new recipe to database
+//   knex('grocerylist')
+//     .insert({ // insert new record, a recipe
+//       'name': req.body.ingredients,
+//     })
+//     .then(() => {
+//       // Send a success message in response
+//       res.json({ message: `Ingredients \'${req.body.ingredients}\' added to grocery list.` })
+//     })
+//     .catch(err => {
+//       // Send a error message in response
+//       res.json({ message: `There was an error adding ${req.body.ingredients} grocery item: ${err}` })
+//     })
+// }
 
 // Remove specific recipe
 exports.recipesDelete = async (req, res) => {
@@ -83,6 +96,26 @@ exports.recipesDelete = async (req, res) => {
     })
 }
 
+// Remove specific recipe
+exports.recipesAddToGrocery = async (req, res) => {
+    console.log('in recipes-controller exports.recipesAddToGrocery')
+    console.log(`id is: ${req.body.id}`)
+    const {spawn} = require('child_process');
+
+    const childPython = spawn('python3', ['src/modules/forms/recipes/addToGroceryList.py', req.body.id]);
+
+    childPython.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+    });
+
+    childPython.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
+
+    childPython.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+    });
+}
 // Remove all recipes on the list
 exports.recipesReset = async (req, res) => {
   // Remove all recipes from database
