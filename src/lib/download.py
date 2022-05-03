@@ -49,7 +49,13 @@ def getIngredients():
 
 
 def getDescription():
-    return None
+    description = ""
+    descripHtml = soup.find_all("div", class_="o-AssetDescription__a-Description")
+    if descripHtml:
+        description = "'" + descripHtml[0].text + "'"
+    else:
+        description = 'NULL'
+    return description
 
 
 def getDirections():
@@ -114,7 +120,7 @@ def main():
     directions = getDirections()
     recipe.directions = directions
 
-    recipe.description = 'NULL'
+    recipe.description = getDescription()
 
     recipe.link = url
 
