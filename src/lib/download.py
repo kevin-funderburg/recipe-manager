@@ -126,7 +126,7 @@ def main():
     recipe.favorite = 'NULL'
 
     sql = "INSERT INTO recipes (name, description, ingredients, directions, link, prep_time, cook_time, category, rating, favorite) " \
-          "VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')".format(recipe.name, recipe.description, recipe.ingredients, recipe, directions, recipe.link, recipe.prep_time, recipe.cook_time, recipe.category, recipe.rating, recipe.favorite)
+          "VALUES('{0}',{1},'{2}','{3}','{4}','{5}','{6}',{7},{8},{9})".format(recipe.name, recipe.description, recipe.ingredients, recipe.directions, recipe.link, recipe.prep_time, recipe.cook_time, recipe.category, recipe.rating, recipe.favorite)
     # create a database connection
     conn = create_connection(dbpath)
     with conn:
