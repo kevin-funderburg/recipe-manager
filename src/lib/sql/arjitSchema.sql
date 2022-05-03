@@ -10,7 +10,7 @@ CREATE TABLE "grocerylist" (
 );
 
 CREATE TABLE "instock" (
-	"itemID"	        INTEGER,
+	"itemID"	    INTEGER,
 	"name"			TEXT
 	"inStock"       INTEGER NOT NULL,
 	PRIMARY KEY("itemID")
@@ -212,9 +212,6 @@ pepper",
 	"Side",
 	5,
 	1)
-	
-
-
 ;
 
 INSERT INTO grocerylist(name) VALUES ("Butter"), ("Cheese"), ("Bacon"), ("Eggs"), ("Olive Oil"), ("Bread"), ("Red Onions"), ('Bell Pepper');

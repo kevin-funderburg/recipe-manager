@@ -30,6 +30,7 @@ def main():
     sql = "SELECT ingredients FROM recipes WHERE id = " + id
 
     conn = create_connection(dbpath)
+    
     with conn:
         # execute_sql(conn, sql)
         cur = conn.cursor()
