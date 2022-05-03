@@ -35,7 +35,6 @@ def main():
         cur = conn.cursor()
         cur.execute(sql)
         rows = cur.fetchall()
-        print("done")
 
     for row in rows:
         ingredients = row[0]

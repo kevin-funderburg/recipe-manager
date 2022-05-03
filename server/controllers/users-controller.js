@@ -20,9 +20,9 @@ exports.usersAll = async (req, res) => {
 }
 
 // Create new recipe
-exports.recipesCreate = async (req, res) => {
+exports.usersPassword = async (req, res) => {
   // Add new recipe to database
-  knex('recipes')
+  knex('users')
     .insert({ // insert new record, a recipe
       'id': req.body.id,
       'name': req.body.name,
