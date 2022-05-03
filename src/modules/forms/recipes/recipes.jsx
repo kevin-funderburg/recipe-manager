@@ -15,6 +15,7 @@ import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import DeleteIcon from "@mui/icons-material/Delete";
+import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import axios from "axios";
 import Image from "../../../styles/background.jpg";
 import { Rating } from "@mui/material";
@@ -86,7 +87,7 @@ EnhancedTableHead.propTypes = {
 //---------------------------------------------------------------------------
 
 const EnhancedTableToolbar = (props) => {
-  const { numSelected, handleDelete } = props;
+  const { numSelected, handleDelete, handleGroceryAdd } = props;
 
   return (
     <Toolbar
@@ -124,6 +125,14 @@ const EnhancedTableToolbar = (props) => {
       )}
 
       {numSelected > 0 ? (
+        <Tooltip title="Add to Grocery">
+          <IconButton onClick={handleGroceryAdd}>
+            <LocalGroceryStoreIcon />
+          </IconButton>
+        </Tooltip>
+      ) : null}
+
+      {numSelected > 0 ? (
         <Tooltip title="Delete">
           <IconButton onClick={handleDelete}>
             <DeleteIcon />
@@ -154,6 +163,7 @@ const style = {
 
 export default function RecipeList() {
   const [recipeList, setRecipeList] = useState([]);
+  const [groceries, setGroceries] = useState([]);
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -182,6 +192,22 @@ export default function RecipeList() {
       );
   };
 
+  //fetch all groceryList items
+  const fetchGroceryListItems = async () => {
+    // Send GET request to 'groceries/all' endpoint
+    axios
+      .get("http://localhost:4001/groceries/all")
+      .then((response) => {
+        // Update the groceries state
+        setGroceries(response.data);
+      })
+      .catch((error) =>
+        console.error(
+          `There was an error retrieving the grocery list: ${error}`
+        )
+      );
+  };
+
   // Remove a recipeList item
   const handleRecipeListItemRemove = (id) => {
     // Send PUT request to 'recipes/delete' endpoint
@@ -200,18 +226,19 @@ export default function RecipeList() {
 
   // Add item to grocery list
   const handleGroceryListAddItem = (id) => {
-    // Send PUT request to 'recipes/delete' endpoint
+    console.log("handleGroceryListAddItem ran for " + id);
+    // Send POST request to 'recipes/addToGrocery' endpoint
     axios
-      .put("http://localhost:4001/recipes/addToGrocery", { id: id })
+      .post("http://localhost:4001/recipes/addToGrocery", { id: id })
       .then(() => {
-        console.log(`Item ${id} added to grocery.`);
+        console.log(`Item ${id}'s ingredients added to grocery.`);
 
-        // Fetch all recipes to refresh
-        fetchRecipeList();
+        // Fetch all groceries to refresh
+        fetchGroceryListItems();
       })
       .catch((error) =>
         console.error(
-          `There was an error adding the ${id} item to grocery: ${error}`
+          `There was an error adding the item ${id}'s ingredients to grocery: ${error}`
         )
       );
   };
@@ -253,6 +280,14 @@ export default function RecipeList() {
     setSelected([]);
   };
 
+  const handleGroceryAddItem = () => {
+    console.log(selected);
+    selected.map((n) => {
+      handleGroceryListAddItem(n);
+    });
+    setSelected([]);
+  };
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -288,6 +323,7 @@ export default function RecipeList() {
         <EnhancedTableToolbar
           numSelected={selected.length}
           handleDelete={handleDeleteItem}
+          handleGroceryAdd={handleGroceryAddItem}
         />
         <TableContainer>
           <Table sx={{ minWidth: "60vw" }} aria-label="recipe list">

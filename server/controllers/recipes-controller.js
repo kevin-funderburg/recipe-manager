@@ -48,18 +48,22 @@ exports.recipesCreate = async (req, res) => {
 
 // Create new recipe
 exports.recipesAddToGrocery = async (req, res) => {
-  // Add new recipe to database
+  // Retrieve recipe with incoming id from recipes
+  const ingredients = knex('recipes').select('recipes.ingredients').where('id', '=', req.body.id)
+  
+  console.log(ingredients);
+  // Add ingredients to grocery list
   knex('grocerylist')
     .insert({ // insert new record, a recipe
-      'name': req.body.ingredients,
+      'name': ingredients,
     })
     .then(() => {
       // Send a success message in response
-      res.json({ message: `Ingredients \'${req.body.ingredients}\' added to grocery list.` })
+      res.json({ message: `Ingredients \'${ingredients}\' added to grocery list.` })
     })
     .catch(err => {
       // Send a error message in response
-      res.json({ message: `There was an error adding ${req.body.ingredients} grocery item: ${err}` })
+      res.json({ message: `There was an error adding ${ingredients} grocery item: ${err}` })
     })
 }
 
