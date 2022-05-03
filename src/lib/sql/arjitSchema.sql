@@ -27,6 +27,11 @@ CREATE TABLE "users" (
 	PRIMARY KEY("id")
 );
 
+INSERT INTO users (email, password, firstname, lastname, location, contact)
+VALUES 	("kf1127@txstate.edu", "Kevinspass", "Kevin", "Funderburg", "123 Made Up Street", "some contact")
+		("aj2313@txstate.edu", "Arjitspass", "Arjit", "Jain", "345 Funkytown Dr", "some contact")
+		("jb234@txstate.edu", "Jamirspass", "Jamir", "Bowser", "4831 Really Cool Ave", "some contact")
+		("jg7474@txstate.edu", "Jessicaspass", "Jessica", "Guo", "4738 Convincing Address Dr", "some contact")
 
 CREATE TABLE "recipes" (
 	"id"      INTEGER,
