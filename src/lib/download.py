@@ -6,8 +6,8 @@ import requests
 import sqlite3
 from sqlite3 import Error
 
-# dbpath = r"../../server/db/database.sqlite"
-dbpath = r"server/db/database.sqlite"
+# dbpath = r"../../server/db/database.sqlite"   #this is the path when executing directly from command line
+dbpath = r"server/db/database.sqlite"   #this is the path when executing from npm
 soup = None
 
 
@@ -142,6 +142,7 @@ def main():
         cur.execute(sql)
         rows = cur.fetchall()
         print("done")
+
 
 if __name__ == "__main__":
     main()
