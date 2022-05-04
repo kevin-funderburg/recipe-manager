@@ -1,80 +1,59 @@
-// recipe-manager/server/controllers/recipes-controller.js
+// recipe-manager/server/controllers/users-controller.js
 
 // Import database
 const knex = require('../db')
 
-// Retrieve all recipes
+// Retrieve all users
 exports.usersAll = async (req, res) => {
-  // Get all recipes from database
+  // Get all users from database
   knex
     .select('*') // select all records
-    .from('recipes') // from 'recipes' table
+    .from('users') // from 'users' table
     .then(userData => {
-      // Send recipes extracted from database in response
+      // Send users extracted from database in response
       res.json(userData)
     })
     .catch(err => {
       // Send a error message in response
-      res.json({ message: `There was an error retrieving recipes: ${err}` })
+      res.json({ message: `There was an error retrieving users: ${err}` })
     })
 }
 
-// Create new recipe
-exports.usersPassword = async (req, res) => {
-  // Add new recipe to database
+// Create new user
+exports.usersCreate = async (req, res) => {
+  // Add new user to database
   knex('users')
-    .insert({ // insert new record, a recipe
+    .insert({ // insert new record, a user
       'id': req.body.id,
-      'name': req.body.name,
-      'description': req.body.description,
-      'ingredients': req.body.ingredients,
-      'directions': req.body.directions,
-      'link': req.body.link,
-      'prep_time': req.body.prep_time,
-      'cook_time': req.body.cook_time,
-      'category': req.body.category,
-      'favorite': req.body.favorite,
-      'rating': req.body.rating
+      'email': req.body.email,
+      'password': req.body.password,
+      'firstName': req.body.firstName,
+      'lastName': req.body.lastName,
+      'location': req.body.location,
+      'contact': req.body.contact,
     })
     .then(() => {
       // Send a success message in response
-      res.json({ message: `Recipe \'${req.body.name}\' with id ${req.body.id} created.` })
+      res.json({ message: `User \'${req.body.firstName}\' with id ${req.body.id} added.` })
     })
     .catch(err => {
       // Send a error message in response
-      res.json({ message: `There was an error creating ${req.body.name} recipe: ${err}` })
+      res.json({ message: `There was an error adding ${req.body.firstName} user: ${err}` })
     })
 }
 
-// Remove specific recipe
-exports.recipesDelete = async (req, res) => {
-  // Find specific recipe in the database and remove it
-  knex('recipes')
-    .where('id', req.body.id) // find correct record based on id
+// Remove specific user
+exports.usersDelete = async (req, res) => {
+  // Find specific user in the database and remove it
+  knex('users')
+    .where('email', req.body.email) // find correct record based on id
     .del() // delete the record
     .then(() => {
       // Send a success message in response
-      res.json({ message: `Recipe ${req.body.id} deleted.` })
+      res.json({ message: `User ${req.body.email} deleted.` })
     })
     .catch(err => {
       // Send a error message in response
-      res.json({ message: `There was an error deleting ${req.body.id} recipe: ${err}` })
-    })
-}
-
-// Remove all recipes on the list
-exports.recipesReset = async (req, res) => {
-  // Remove all recipes from database
-  knex
-    .select('*') // select all records
-    .from('recipes') // from 'recipes' table
-    .truncate() // remove the selection
-    .then(() => {
-      // Send a success message in response
-      res.json({ message: 'Recipe List cleared.' })
-    })
-    .catch(err => {
-      // Send a error message in response
-      res.json({ message: `There was an error clearing the Recipe List: ${err}.` })
+      res.json({ message: `There was an error deleting ${req.body.email} user: ${err}` })
     })
 }

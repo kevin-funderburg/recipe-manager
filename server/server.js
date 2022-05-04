@@ -11,6 +11,7 @@ const helmet = require('helmet')
 const recipesRouter = require('./routes/recipes-route')
 const groceriesRouter = require('./routes/grocerylist-route')
 const downloadRouter = require('./routes/download-routes')
+const usersRouter = require('./routes/users-route')
 
 // Set default port for express app
 const PORT = process.env.PORT || 4001
@@ -29,11 +30,14 @@ app.use(bodyParser.json())
 // Implement recipes route
 app.use('/recipes', recipesRouter)
 
-// Implement recipes route
+// Implement download route
 app.use('/download', downloadRouter)
 
 // Implement groceries route
 app.use('/groceries', groceriesRouter)
+
+// Implement users route
+app.use('/users', usersRouter)
 
 // Implement 500 error route
 app.use(function (err, req, res, next) {

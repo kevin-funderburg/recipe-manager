@@ -3,14 +3,64 @@ import { TextField, Button, Typography } from "@mui/material";
 import { Box, Grid, Paper } from "@mui/material";
 import { Link } from "react-router-dom";
 import Image from "../../../styles/background.jpg";
+import axios from "axios";
 
 function Signup() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [contact, setContact] = useState("");
   const [location, setLocation] = useState("");
+
+  // Reset all input fields
+  const handleInputsReset = () => {
+    setEmail("");
+    setPassword("");
+    setFirstName("");
+    setLastName("");
+    setContact("");
+    setLocation("");
+  };
+
+  const handleUserCreate = () => {
+    // Send POST request to 'users/create' endpoint
+    axios
+      .post("http://localhost:4001/users/create", {
+        email: email,
+        password: password,
+        firstName: firstName,
+        lastName: lastName,
+        location: location,
+        contact: contact,
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.error(
+          `There was an error adding the ${firstName} user: ${error}`
+        );
+      });
+  };
+
+  const handleUserSubmit = () => {
+    // Check if required fields are filled
+    if (
+      firstName.length > 0 &&
+      lastName.length > 0 &&
+      email.length > 0 &&
+      password.length > 0
+    ) {
+      // Create new user
+      handleUserCreate();
+
+      alert(`User ${firstName} added.`);
+
+      // Reset all input fields
+      handleInputsReset();
+    }
+  };
 
   return (
     <Box
@@ -60,101 +110,104 @@ function Signup() {
             borderRadius: 10,
           }}
         >
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <Typography variant="h4" sx={{ textAlign: "center" }}>
-                Create your account
-              </Typography>
+          <form onSubmit={handleUserSubmit}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Typography variant="h4" sx={{ textAlign: "center" }}>
+                  Create your account
+                </Typography>
+              </Grid>
             </Grid>
-          </Grid>
-          <hr />
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <TextField
-                required
-                id="outlined-text-firstName"
-                name="firstName"
-                label="First Name"
-                variant="outlined"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
+            <hr />
+            <Grid container spacing={2}>
+              <Grid item xs={6}>
+                <TextField
+                  required
+                  id="outlined-text-firstName"
+                  name="firstName"
+                  label="First Name"
+                  variant="outlined"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  required
+                  id="outlined-text-lastName"
+                  name="lastName"
+                  label="Last Name"
+                  variant="outlined"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={6}>
-              <TextField
-                required
-                id="outlined-text-lastName"
-                name="lastName"
-                label="Last Name"
-                variant="outlined"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-              />
+            <Grid container spacing={2}>
+              <Grid item xs={6}>
+                <TextField
+                  id="outlined-text-location"
+                  name="location"
+                  label="Location"
+                  variant="outlined"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  id="outlined-text-contact"
+                  name="contact"
+                  label="Contact"
+                  variant="outlined"
+                  value={contact}
+                  onChange={(e) => setContact(e.target.value)}
+                />
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <TextField
-                id="outlined-text-location"
-                name="location"
-                label="Location"
-                variant="outlined"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-              />
+            <Grid container spacing={2}>
+              <Grid item xs={6}>
+                <TextField
+                  required
+                  id="outlined-text-email"
+                  name="email"
+                  label="Email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  required
+                  id="outlined-text-password"
+                  name="password"
+                  label="Password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={6}>
-              <TextField
-                id="outlined-text-contact"
-                name="contact"
-                label="Contact"
-                variant="outlined"
-                value={contact}
-                onChange={(e) => setContact(e.target.value)}
-              />
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Button
+                  fullWidth
+                  id="button-createAccount"
+                  name="login"
+                  // component={Link}
+                  // to={{
+                  //   pathname: "/myRecipes",
+                  // }}
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                >
+                  Create your account
+                </Button>
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <TextField
-                required
-                id="outlined-text-email"
-                name="email"
-                label="Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                required
-                id="outlined-text-password"
-                name="password"
-                label="Password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Grid>
-          </Grid>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <Button
-                fullWidth
-                component={Link}
-                id="button-login"
-                name="login"
-                to={{
-                  pathname: "/myAccount",
-                }}
-                variant="contained"
-                color="primary"
-              >
-                Create your account
-              </Button>
-            </Grid>
-          </Grid>
+          </form>
         </Paper>
       </Box>
     </Box>

@@ -87,6 +87,42 @@ knex.schema
       console.error(`There was an error setting up the database: ${error}`)
     })
 
+// Create a table in the database called "users"
+knex.schema
+  // Make sure no "users" table exists
+  // before trying to create new one
+  .hasTable('users')
+    .then((exists) => {
+      if (!exists) {
+        // If no "users" table exists
+        // use "id" as a primary identification
+        // and increment "id" with every new record (user)
+        return knex.schema.createTable('users', (table)  => {
+          table.increments('id').primary()
+          table.string('email')
+          table.string('password')
+          table.string('firstName')
+          table.string('lastName')
+          table.string('location')
+          table.string('contact')
+        })
+        .then(() => {
+          // Log success message
+          console.log('Table \'Users\' created')
+        })
+        .catch((error) => {
+          console.error(`There was an error creating table: ${error}`)
+        })
+      }
+    })
+    .then(() => {
+      // Log success message
+      console.log('Setting up database done.')
+    })
+    .catch((error) => {
+      console.error(`There was an error setting up the database: ${error}`)
+    })
+
 // Create a table in the database called "instock"
 knex.schema
 // Make sure no "instock" table exists
@@ -120,17 +156,22 @@ knex.schema
 
 // Log all data in "recipes" table
 knex.select('*').from('recipes')
-  .then(data => console.log('recipes data:', data))
+  .then(data => console.log('Recipes Data:', data))
   .catch(err => console.log(err))
   
 // Log all data in "grocerylist" table
 knex.select('*').from('grocerylist')
-  .then(data => console.log('grocery list data:', data))
+  .then(data => console.log('Grocery List Data:', data))
   .catch(err => console.log(err))
+
+// Log all data in "users" table
+knex.select('*').from('users')
+.then(data => console.log('Users Data:', data))
+.catch(err => console.log(err))
 
 // Log all data in "instock" table
 knex.select('*').from('instock')
-  .then(data => console.log('instock data:', data))
+  .then(data => console.log('Instock Data:', data))
   .catch(err => console.log(err))
 
 // Export the database

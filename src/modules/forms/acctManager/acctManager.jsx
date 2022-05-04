@@ -2,22 +2,83 @@ import React, { useEffect, useState } from "react";
 import { TextField, Button, Rating, IconButton } from "@mui/material";
 import { Box, Grid, Paper } from "@mui/material";
 import { Typography } from "@mui/material";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Image from "../../../styles/background.jpg";
-// import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-// import { Formik } from 'formik';
+import axios from "axios";
 
 function AcctManager() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
   const [contact, setContact] = useState("");
   const [location, setLocation] = useState("");
-  const [password, setPassword] = useState("");
+
+  // Reset all input fields
+  const handleInputsReset = () => {
+    setEmail("");
+    setPassword("");
+    setFirstName("");
+    setLastName("");
+    setContact("");
+    setLocation("");
+  };
+
+  // Remove User
+  const handleUserRemove = (email) => {
+    // Send PUT request to 'users/delete' endpoint
+    axios
+      .put("http://localhost:4001/users/delete", { email: email })
+      .then(() => {
+        console.log(`User ${email} removed.`);
+      })
+      .catch((error) =>
+        console.error(`There was an error removing the ${email} user: ${error}`)
+      );
+  };
+
+  const handleUserCreate = () => {
+    // Send POST request to 'users/create' endpoint
+    axios
+      .post("http://localhost:4001/users/create", {
+        email: email,
+        password: password,
+        firstName: firstName,
+        lastName: lastName,
+        location: location,
+        contact: contact,
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.error(
+          `There was an error adding the ${firstName} user: ${error}`
+        );
+      });
+  };
+
+  const handleUserSubmit = () => {
+    // Check if required fields are filled
+    if (
+      firstName.length > 0 &&
+      lastName.length > 0 &&
+      email.length > 0 &&
+      password.length > 0 &&
+      location.length > 0 &&
+      contact.length > 0
+    ) {
+      // remove user with input email
+      handleUserRemove(email);
+
+      // create new user with updated info
+      handleUserCreate();
+
+      alert(`User ${email} updated.`);
+
+      // Reset all input fields
+      handleInputsReset();
+    }
+  };
 
   return (
     <Box
@@ -61,121 +122,123 @@ function AcctManager() {
             borderRadius: 10,
           }}
         >
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <Typography variant="h4" sx={{ textAlign: "center" }}>
-                Manage your account
-              </Typography>
-            </Grid>
-          </Grid>
-          <hr></hr>
-          <br />
-          <br />
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <TextField
-                id="outlined-text-firstName"
-                name="firstName"
-                label="First Name"
-                variant="outlined"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-            </Grid>
-
-            <Grid item xs={6}>
-              <TextField
-                id="outlined-text-lastName"
-                name="lasttName"
-                label="Last Name"
-                variant="outlined"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-              />
-            </Grid>
-          </Grid>
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <TextField
-                id="outlined-text-location"
-                name="location"
-                label="Location"
-                variant="outlined"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                id="outlined-text-contact"
-                name="contact"
-                label="Contact"
-                variant="outlined"
-                value={contact}
-                onChange={(e) => setContact(e.target.value)}
-              />
-            </Grid>
-          </Grid>
-          <Grid container spacing={2}>
+          <form onSubmit={handleUserSubmit}>
             <Grid container spacing={2}>
-              <Grid item xs={6}>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    textAlign: "center",
-                    paddingTop: "10%",
-                    paddingLeft: "10%",
-                  }}
-                >
-                  Would you like to change your email address?
+              <Grid item xs={12}>
+                <Typography variant="h4" sx={{ textAlign: "center" }}>
+                  Manage your account
                 </Typography>
               </Grid>
+            </Grid>
+            <hr></hr>
+            <br />
+            <br />
+            <Grid container spacing={2}>
               <Grid item xs={6}>
                 <TextField
-                  id="outlined-email-input"
-                  name="email"
-                  label="Email"
+                  id="outlined-text-firstName"
+                  name="firstName"
+                  label="First Name"
                   variant="outlined"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </Grid>
+
+              <Grid item xs={6}>
+                <TextField
+                  id="outlined-text-lastName"
+                  name="lasttName"
+                  label="Last Name"
+                  variant="outlined"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
               </Grid>
             </Grid>
             <Grid container spacing={2}>
               <Grid item xs={6}>
-                <Typography
-                  variant="body2"
-                  sx={{ textAlign: "center", paddingTop: "10%" }}
-                >
-                  Would you like to change your password?
-                </Typography>
+                <TextField
+                  id="outlined-text-location"
+                  name="location"
+                  label="Location"
+                  variant="outlined"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                />
               </Grid>
               <Grid item xs={6}>
                 <TextField
-                  id="outlined-password-input"
-                  name="password"
-                  label="Password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  autoComplete="current-password"
+                  id="outlined-text-contact"
+                  name="contact"
+                  label="Contact"
+                  variant="outlined"
+                  value={contact}
+                  onChange={(e) => setContact(e.target.value)}
                 />
               </Grid>
             </Grid>
-          </Grid>
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <Button variant="contained" color="primary">
-                CANCEL
-              </Button>
+            <Grid container spacing={2}>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      textAlign: "center",
+                      paddingTop: "10%",
+                      paddingLeft: "10%",
+                    }}
+                  >
+                    Enter your registered email address?
+                  </Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <TextField
+                    id="outlined-email-input"
+                    name="email"
+                    label="Email"
+                    variant="outlined"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </Grid>
+              </Grid>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  <Typography
+                    variant="body2"
+                    sx={{ textAlign: "center", paddingTop: "10%" }}
+                  >
+                    Would you like to change your password?
+                  </Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <TextField
+                    id="outlined-password-input"
+                    name="password"
+                    label="Password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    autoComplete="current-password"
+                  />
+                </Grid>
+              </Grid>
             </Grid>
-            <Grid item xs={6}>
-              <Button variant="contained" color="primary">
-                SAVE
-              </Button>
+            <Grid container spacing={2}>
+              <Grid item xs={6}>
+                <Button variant="contained" color="primary">
+                  CANCEL
+                </Button>
+              </Grid>
+              <Grid item xs={6}>
+                <Button variant="contained" color="primary" type="submit">
+                  SAVE
+                </Button>
+              </Grid>
             </Grid>
-          </Grid>
+          </form>
         </Paper>
       </div>
     </Box>

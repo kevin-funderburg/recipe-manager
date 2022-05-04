@@ -103,7 +103,6 @@ function NewRecipe() {
       directions.length > 0 &&
       link.length > 0 &&
       category.length > 0
-      //   favorite.length > 0 &&
     ) {
       // Create new recipe
       handleRecipeCreate();
