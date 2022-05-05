@@ -21,6 +21,7 @@
     "express": "^4.17.3",
     "formik": "^2.2.9",
     "helmet": "^5.0.2",
+    "jest-dom": "^4.0.0",
     "knex": "^2.0.0",
     "nodemon": "^2.0.15",
     "react": "^17.0.2",
@@ -45,7 +46,7 @@
       "react-app/jest"
     ]
   },
-  "browser":{
+  "browser": {
     "child_process": false
   },
   "browserslist": {
@@ -59,5 +60,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "supertest": "^6.2.3"
   }
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import AcctManager from './acctManager'; // component to test
 import { BrowserRouter as Router } from 'react-router-dom';
+import { isEditable } from '@testing-library/user-event/dist/utils';
 
 const buttons = [
     { text: 'CANCEL' },
@@ -10,14 +11,23 @@ const buttons = [
 ]
 
 const textfields = [
-    { text: 'First Name' },
+    { text: 'outlined-text-firstName-label' },
     { text: 'Last Name' },
     { text: 'Location' },
     { text: 'Contact' },
-    { text: 'Email' },
+    { text: 'email' },
     { text: 'Password' },
 ]
 
+
+const ids = [
+    { text: 'outlined-text-firstName-label' },
+    // { text: 'Last Name' },
+    // { text: 'Location' },
+    // { text: 'Contact' },
+    // { text: 'email' },
+    // { text: 'Password' },
+]
 //TO DO: TEST entry
 // const entries = [
 //     {name: 'test recipe', description: 'testing description', ingredients: 'eggs, water, air',
@@ -42,19 +52,34 @@ test.each(buttons)(
     }
 );
 
+// // I use test.each to iterate the test cases above
+// test.each(textfields)(
+//     "Test if all neccessary textfields exist",
+//     (textfields) => {
+//         render(
+//             <Router>
+//                 <AcctManager />
+//             </Router>
+//         );
+//         //Ensure the text is in the dom, will throw error it can't find
+//         const linkDom = screen.getByLabelText(textfields.text) ;
+
+//         //use jest assertion to verify textfields property
+//         expect(linkDom).toBeInTheDocument();
+//     }
+// );
+
 // I use test.each to iterate the test cases above
-test.each(textfields)(
+test.each(ids)(
     "Test if all neccessary textfields exist",
-    (textfields) => {
-        render(
+    (ids) => {
+        const result = render(
             <Router>
                 <AcctManager />
             </Router>
         );
-        //Ensure the text is in the dom, will throw error it can't find
-        const linkDom = screen.getByLabelText(textfields.text) ;
-
+        const theID = result.container.querySelector(ids.text);
         //use jest assertion to verify textfields property
-        expect(linkDom).toBeInTheDocument();
+        // expect(theID).toBeInTheDocument();
     }
 );
