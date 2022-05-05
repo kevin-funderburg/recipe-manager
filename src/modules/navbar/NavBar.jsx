@@ -53,8 +53,8 @@ function Navbar() {
           <Link to="/newRecipe" className={classes.link}>
             New Recipe
           </Link>
-          <Link to="/myAccount" className={classes.link}>
-            My Account
+          <Link to="/download" className={classes.link}>
+            Download
           </Link>
           <Link to="/myRecipes" className={classes.link}>
             My Recipes
@@ -62,8 +62,8 @@ function Navbar() {
           <Link to="/groceryList" className={classes.link}>
             Grocery List
           </Link>
-          <Link to="/inStock" className={classes.link}>
-            In Stock
+          <Link to="/myAccount" className={classes.link}>
+            My Account
           </Link>
           <Link to="/" className={classes.link}>
             Log Out

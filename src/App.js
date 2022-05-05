@@ -4,7 +4,6 @@ import Signup from "./modules/authenticate/signup/signup.jsx";
 import NewRecipe from './modules/forms/newRecipe/newRecipe.jsx';
 import Recipes from './modules/forms/recipes/recipes.jsx';
 import Download from './modules/forms/download/download.jsx'
-import About from './modules/pages/about/about'
 import Navbar from './modules/navbar/NavBar.jsx'
 import GroceryList from './modules/forms/GroceryList/GroceryList'
 import AcctManager from './modules/forms/acctManager/acctManager'
@@ -68,13 +67,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/download" element={<Download />}></Route>
+        <Route path="/home" element={<Home />}></Route>
         <Route path="/newRecipe" element={<NewRecipe />}></Route>
+        <Route path="/download" element={<Download />}></Route>
         <Route path="/myRecipes" element={<Recipes />}></Route>
         <Route path="/groceryList" element={<GroceryList />}></Route>
         <Route path="/myAccount" element={<AcctManager />}></Route>
-        <Route path="/inStock" element={<Home />}></Route>
       </Routes>
 
     </Router>

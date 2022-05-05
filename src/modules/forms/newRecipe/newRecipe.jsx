@@ -277,13 +277,14 @@ function NewRecipe() {
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                   >
-                    <MenuItem value={"beef"}>Beef</MenuItem>
-                    <MenuItem value={"fish"}>Fish</MenuItem>
-                    <MenuItem value={"pork"}>Pork</MenuItem>
-                    <MenuItem value={"poultry"}>Poultry</MenuItem>
-                    <MenuItem value={"shellfish"}>Shellfish</MenuItem>
-                    <MenuItem value={"desert"}>Desert</MenuItem>
-                    <MenuItem value={"breakfast"}>Breakfast</MenuItem>
+                    <MenuItem value={"Bread"}>Bread</MenuItem>
+                    <MenuItem value={"Beef"}>Beef</MenuItem>
+                    <MenuItem value={"Fish"}>Fish</MenuItem>
+                    <MenuItem value={"Pork"}>Pork</MenuItem>
+                    <MenuItem value={"Poultry"}>Poultry</MenuItem>
+                    <MenuItem value={"Shellfish"}>Shellfish</MenuItem>
+                    <MenuItem value={"Dessert"}>Dessert</MenuItem>
+                    <MenuItem value={"Breakfast"}>Breakfast</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>

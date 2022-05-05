@@ -20,6 +20,7 @@ import axios from "axios";
 import Image from "../../../styles/background.jpg";
 import { Rating } from "@mui/material";
 import { Modal } from "@mui/material";
+import { makeStyles } from "@mui/material";
 
 const headCells = [
   {
@@ -149,17 +150,6 @@ EnhancedTableToolbar.propTypes = {
 };
 
 //-------------------------------------------------------------------------------------
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
 
 export default function RecipeList() {
   const [recipeList, setRecipeList] = useState([]);
@@ -167,9 +157,13 @@ export default function RecipeList() {
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  // modal toggle
+  const handleModalOpen = () => setOpenModal(true);
+  const handleModalClose = () => setOpenModal(false);
 
   //fetch all recipeList items on initail render
   useEffect(() => {
@@ -272,6 +266,13 @@ export default function RecipeList() {
     setSelected(newSelected);
   };
 
+  const handleRowClick = (event, name, description) => {
+    handleModalOpen();
+    setTitle(name);
+    setDescription(description);
+    console.log(name);
+  };
+
   const handleDeleteItem = () => {
     console.log(selected);
     selected.map((n) => {
@@ -339,40 +340,79 @@ export default function RecipeList() {
                   const isItemSelected = isSelected(recipe.id);
                   const labelId = `enhanced-table-checkbox-${index}`;
                   return (
-                    <TableRow
-                      hover
-                      onClick={handleOpen}
-                      key={recipe.id}
-                      role="checkbox"
-                      aria-checked={isItemSelected}
-                      tabIndex={-1}
-                      selected={isItemSelected}
-                    >
-                      <TableCell component="th" id={labelId} scope="row">
-                        {index + 1}
-                      </TableCell>
-                      <TableCell align="left">{recipe.name}</TableCell>
-                      <TableCell align="left">{recipe.category}</TableCell>
-                      <TableCell align="left">{recipe.prep_time}</TableCell>
-                      <TableCell align="left">{recipe.cook_time}</TableCell>
-                      <TableCell align="left">
-                        <Rating
-                          name="read-only"
-                          value={recipe.rating}
-                          readOnly
-                        />
-                      </TableCell>
-                      <TableCell padding="checkbox">
-                        <Checkbox
-                          color="primary"
-                          checked={isItemSelected}
-                          onClick={(event) => handleClick(event, recipe.id)}
-                          inputProps={{
-                            "aria-labelledby": labelId,
+                    <>
+                      <TableRow
+                        hover
+                        onClick={(event) =>
+                          handleRowClick(event, recipe.name, recipe.directions)
+                        }
+                        key={recipe.id}
+                        role="checkbox"
+                        aria-checked={isItemSelected}
+                        tabIndex={-1}
+                        selected={isItemSelected}
+                      >
+                        <TableCell component="th" id={labelId} scope="row">
+                          {index + 1}
+                        </TableCell>
+                        <TableCell align="left">{recipe.name}</TableCell>
+                        <TableCell align="left">{recipe.category}</TableCell>
+                        <TableCell align="left">{recipe.prep_time}</TableCell>
+                        <TableCell align="left">{recipe.cook_time}</TableCell>
+                        <TableCell align="left">
+                          <Rating
+                            name="read-only"
+                            value={recipe.rating}
+                            readOnly
+                          />
+                        </TableCell>
+                        <TableCell padding="checkbox">
+                          <Checkbox
+                            color="primary"
+                            checked={isItemSelected}
+                            onClick={(event) => handleClick(event, recipe.id)}
+                            inputProps={{
+                              "aria-labelledby": labelId,
+                            }}
+                          />
+                        </TableCell>
+                      </TableRow>
+                      <Modal
+                        open={openModal}
+                        onClose={handleModalClose}
+                        sx={{ bgcolor: "white" }}
+                        aria-labelledby="modal-modal-title"
+                        aria-describedby="modal-modal-description"
+                      >
+                        <Box
+                          sx={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            width: "50%",
+                            bgcolor: "background.paper",
+                            border: "2px solid #000",
+                            boxShadow: 24,
+                            p: 4,
                           }}
-                        />
-                      </TableCell>
-                    </TableRow>
+                        >
+                          <Typography
+                            id="modal-modal-title"
+                            variant="h6"
+                            component="h2"
+                          >
+                            {title}
+                          </Typography>
+                          <Typography
+                            id="modal-modal-description"
+                            sx={{ mt: 2 }}
+                          >
+                            {description}
+                          </Typography>
+                        </Box>
+                      </Modal>
+                    </>
                   );
                 })}
               {emptyRows > 0 && (

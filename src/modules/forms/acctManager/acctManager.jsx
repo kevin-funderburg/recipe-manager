@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { TextField, Button, Rating, IconButton } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import { Box, Grid, Paper } from "@mui/material";
 import { Typography } from "@mui/material";
 import Image from "../../../styles/background.jpg";
@@ -23,7 +23,7 @@ function AcctManager() {
     setLocation("");
   };
 
-  // Remove User
+  // Remove User with input email
   const handleUserRemove = (email) => {
     // Send PUT request to 'users/delete' endpoint
     axios
@@ -36,6 +36,7 @@ function AcctManager() {
       );
   };
 
+  // Add new User with input data
   const handleUserCreate = () => {
     // Send POST request to 'users/create' endpoint
     axios
@@ -57,6 +58,7 @@ function AcctManager() {
       });
   };
 
+  // function to perform delete then add when submit button is clicked.
   const handleUserSubmit = () => {
     // Check if required fields are filled
     if (
@@ -136,6 +138,7 @@ function AcctManager() {
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <TextField
+                  required
                   id="outlined-text-firstName"
                   name="firstName"
                   label="First Name"
@@ -144,9 +147,9 @@ function AcctManager() {
                   onChange={(e) => setFirstName(e.target.value)}
                 />
               </Grid>
-
               <Grid item xs={6}>
                 <TextField
+                  required
                   id="outlined-text-lastName"
                   name="lasttName"
                   label="Last Name"
@@ -156,9 +159,11 @@ function AcctManager() {
                 />
               </Grid>
             </Grid>
+
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <TextField
+                  required
                   id="outlined-text-location"
                   name="location"
                   label="Location"
@@ -169,6 +174,7 @@ function AcctManager() {
               </Grid>
               <Grid item xs={6}>
                 <TextField
+                  required
                   id="outlined-text-contact"
                   name="contact"
                   label="Contact"
@@ -178,22 +184,24 @@ function AcctManager() {
                 />
               </Grid>
             </Grid>
+
             <Grid container spacing={2}>
               <Grid container spacing={2}>
                 <Grid item xs={6}>
                   <Typography
-                    variant="body2"
+                    variant="body1"
                     sx={{
                       textAlign: "center",
                       paddingTop: "10%",
                       paddingLeft: "10%",
                     }}
                   >
-                    Enter your registered email address?
+                    Enter your registered email address:
                   </Typography>
                 </Grid>
                 <Grid item xs={6}>
                   <TextField
+                    required
                     id="outlined-email-input"
                     name="email"
                     label="Email"
@@ -207,14 +215,15 @@ function AcctManager() {
               <Grid container spacing={2}>
                 <Grid item xs={6}>
                   <Typography
-                    variant="body2"
+                    variant="body1"
                     sx={{ textAlign: "center", paddingTop: "10%" }}
                   >
-                    Would you like to change your password?
+                    Enter your new password:
                   </Typography>
                 </Grid>
                 <Grid item xs={6}>
                   <TextField
+                    required
                     id="outlined-password-input"
                     name="password"
                     label="Password"
@@ -228,7 +237,13 @@ function AcctManager() {
             </Grid>
             <Grid container spacing={2}>
               <Grid item xs={6}>
-                <Button variant="contained" color="primary">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => {
+                    alert("Cancelled by User!");
+                  }}
+                >
                   CANCEL
                 </Button>
               </Grid>
