@@ -235,7 +235,7 @@ export default function GroceryList() {
         backgroundImage: `url(${Image})`,
       }}
     >
-      <Paper elevation={3} sx={{ width: "50vw", ml: "auto", mr: "auto" }}>
+      <Paper elevation={3} sx={{ width: "45vw", ml: "auto", mr: "auto" }}>
         <EnhancedTableToolbar
           numSelected={selected.length}
           handleDelete={handleDeleteItem}

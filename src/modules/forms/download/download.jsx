@@ -47,14 +47,27 @@ function Download() {
             textAlign: "center",
             flexDirection: "column",
             justifyContent: "center",
+            "& .MuiPaper-root": {
+              bgcolor: "rgba(255,255,255, 0.8)",
+            },
           }}
         >
-          <Typography variant="h2" color="white">
-            Welcome!
-          </Typography>
-          <Typography variant="h2" color="white">
-            Please Log In
-          </Typography>
+          <Paper
+            sx={{
+              width: "69%",
+              ml: "20%",
+              "& .MuiTypography-root": {
+                fontSize: 52,
+              },
+            }}
+          >
+            <Typography variant="h2" color="#E04D01">
+              Your favorite Recipe
+            </Typography>
+            <Typography variant="h2" color="#E04D01">
+              is just a click away!
+            </Typography>
+          </Paper>
         </Box>
         <Box
           sx={{
