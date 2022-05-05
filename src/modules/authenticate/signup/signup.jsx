@@ -55,7 +55,7 @@ function Signup() {
       // Create new user
       handleUserCreate();
 
-      alert(`User ${firstName} added.`);
+      alert(`Account ${firstName} ${lastName} created.`);
 
       // Reset all input fields
       handleInputsReset();
@@ -146,6 +146,7 @@ function Signup() {
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <TextField
+                  required
                   id="outlined-text-location"
                   name="location"
                   label="Location"
@@ -156,6 +157,7 @@ function Signup() {
               </Grid>
               <Grid item xs={6}>
                 <TextField
+                  required
                   id="outlined-text-contact"
                   name="contact"
                   label="Contact"

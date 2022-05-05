@@ -51,11 +51,9 @@ TODO - Kevin
 3. add error catching to download when entering a bad url
 
 TODO - Arjit
-1. alert user when clicking stuff
 2. redo download
 3. field validation
 4. user controller - password and stuff
-5. click a recipe, and view it - look into modal
 */
 
 function App() {

@@ -75,7 +75,7 @@ function AcctManager() {
       // create new user with updated info
       handleUserCreate();
 
-      alert(`User ${email} updated.`);
+      alert(`Account ${firstName} ${lastName} updated.`);
 
       // Reset all input fields
       handleInputsReset();
@@ -133,8 +133,6 @@ function AcctManager() {
               </Grid>
             </Grid>
             <hr></hr>
-            <br />
-            <br />
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <TextField

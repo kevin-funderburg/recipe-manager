@@ -204,6 +204,7 @@ export default function GroceryList() {
       handleGroceryItemRemove(n);
     });
     setSelected([]);
+    alert("Selected items were deleted from the database.");
   };
 
   const handleChangePage = (event, newPage) => {

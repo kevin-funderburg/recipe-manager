@@ -20,7 +20,6 @@ import axios from "axios";
 import Image from "../../../styles/background.jpg";
 import { Rating } from "@mui/material";
 import { Modal } from "@mui/material";
-import { makeStyles } from "@mui/material";
 
 const headCells = [
   {
@@ -274,11 +273,11 @@ export default function RecipeList() {
   };
 
   const handleDeleteItem = () => {
-    console.log(selected);
     selected.map((n) => {
       handleRecipeListItemRemove(n);
     });
     setSelected([]);
+    alert(`Selected items were deleted from the database.`);
   };
 
   const handleGroceryAddItem = () => {
@@ -287,6 +286,7 @@ export default function RecipeList() {
       handleGroceryListAddItem(n);
     });
     setSelected([]);
+    alert(`Ingredients of selected items were added to the grocery list.`);
   };
 
   const handleChangePage = (event, newPage) => {

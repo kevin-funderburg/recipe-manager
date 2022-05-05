@@ -155,24 +155,19 @@ knex.schema
     })
 
 // Log all data in "recipes" table
-knex.select('*').from('recipes')
-  .then(data => console.log('Recipes Data:', data))
-  .catch(err => console.log(err))
+// knex.select('*').from('recipes')
+//   .then(data => console.log('Recipes Data:', data))
+//   .catch(err => console.log(err))
   
 // Log all data in "grocerylist" table
-knex.select('*').from('grocerylist')
-  .then(data => console.log('Grocery List Data:', data))
-  .catch(err => console.log(err))
+// knex.select('*').from('grocerylist')
+//   .then(data => console.log('Grocery List Data:', data))
+//   .catch(err => console.log(err))
 
 // Log all data in "users" table
 knex.select('*').from('users')
 .then(data => console.log('Users Data:', data))
 .catch(err => console.log(err))
-
-// Log all data in "instock" table
-knex.select('*').from('instock')
-  .then(data => console.log('Instock Data:', data))
-  .catch(err => console.log(err))
 
 // Export the database
 module.exports = knex

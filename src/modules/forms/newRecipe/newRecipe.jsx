@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from "react";
-import {
-  TextField,
-  Button,
-  Rating,
-  Typography,
-  IconButton,
-} from "@mui/material";
+import { TextField, Button, Rating, Typography } from "@mui/material";
 import { Box, Grid, Paper } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-// import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-// import { Formik } from 'formik';
+import Select from "@mui/material/Select";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Image from "../../../styles/background.jpg";
@@ -28,7 +19,7 @@ function NewRecipe() {
   const [prepTime, setPrepTime] = useState(0);
   const [cookTime, setCookTime] = useState(0);
   const [category, setCategory] = useState("");
-  const [favorite, setFavorite] = useState(false);
+  const [favorite, setFavorite] = useState(true);
   const [rating, setRating] = useState(0);
   const [recipes, setRecipes] = useState([]);
 
@@ -107,45 +98,11 @@ function NewRecipe() {
       // Create new recipe
       handleRecipeCreate();
 
-      console.info(`Recipe ${name} added.`);
+      alert(`Recipe \'${name}\' added to the database.`);
 
       // Reset all input fields
       handleInputsReset();
     }
-  };
-
-  // Remove recipe
-  const handleRecipeRemove = (id, name) => {
-    // Send PUT request to 'recipes/delete' endpoint
-    axios
-      .put("http://localhost:4001/recipes/delete", { id: id })
-      .then(() => {
-        console.log(`Recipe ${name} removed.`);
-
-        // Fetch all recipes to refresh
-        // the recipes on the recipe list
-        fetchRecipes();
-      })
-      .catch((error) =>
-        console.error(
-          `There was an error removing the ${name} recipe: ${error}`
-        )
-      );
-  };
-
-  // Reset recipe list (remove all recipes)
-  const handleListReset = () => {
-    // Send PUT request to 'recipes/reset' endpoint
-    axios
-      .put("http://localhost:4001/recipes/reset")
-      .then(() => {
-        // Fetch all recipes to refresh
-        // the recipes on the recipe list
-        fetchRecipes();
-      })
-      .catch((error) =>
-        console.error(`There was an error resetting the recipe list: ${error}`)
-      );
   };
 
   return (
@@ -175,10 +132,12 @@ function NewRecipe() {
               width: "90%",
             },
             "& .MuiButton-root": {
-              width: "auto",
+              width: "23%",
               fontSize: "100%",
               marginTop: "7%",
               marginBottom: "7%",
+              marginLeft: "10%",
+              marginRight: "10%",
               bgcolor: "#E04D01",
               ":hover": {
                 bgcolor: "#FF7700",
@@ -314,7 +273,7 @@ function NewRecipe() {
               <br />
               <br />
               <Grid container spacing={2}>
-                <Grid item xs={4}>
+                <Grid item xs={6} align="right">
                   <Button
                     component={Link}
                     id="button-cancel"
@@ -328,30 +287,13 @@ function NewRecipe() {
                     CANCEL
                   </Button>
                 </Grid>
-                <Grid item xs={4}>
-                  <Button
-                    component={Link}
-                    id="button-download"
-                    name="download"
-                    to={{
-                      pathname: "/download",
-                    }}
-                    variant="contained"
-                    color="primary"
-                  >
-                    DOWNLOAD
-                  </Button>
-                </Grid>
-                <Grid item xs={4}>
+
+                <Grid item xs={6} align="left">
                   <Button variant="contained" color="primary" type="submit">
                     SAVE
                   </Button>
                 </Grid>
               </Grid>
-
-              {/* <IconButton color="primary" aria-label="add to shopping cart">
-                                <AddShoppingCartIcon />
-                            </IconButton> */}
             </Grid>
           </form>
         </Paper>

@@ -71,10 +71,10 @@ function Download() {
             elevation={3}
             sx={{
               width: "65%",
-              height: "60%",
+              height: "40%",
               textAlign: "center",
               "& .MuiTextField-root": {
-                marginTop: "3%",
+                marginTop: "10%",
                 marginBottom: "3%",
                 width: "70%",
               },
@@ -83,6 +83,8 @@ function Download() {
                 fontSize: "100%",
                 marginTop: "7%",
                 marginBottom: "7%",
+                marginLeft: "7%",
+                marginRight: "7%",
                 bgcolor: "#E04D01",
                 ":hover": {
                   bgcolor: "#FF7700",
@@ -103,8 +105,7 @@ function Download() {
                   </Typography>
                 </Grid>
               </Grid>
-              <hr width="90%" />
-              <br />
+              <hr></hr>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <TextField
@@ -121,7 +122,7 @@ function Download() {
               </Grid>
 
               <Grid container spacing={2}>
-                <Grid item xs={6}>
+                <Grid item xs={6} align="right">
                   <Button
                     component={Link}
                     id="button-cancel"
@@ -135,7 +136,7 @@ function Download() {
                     Cancel
                   </Button>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={6} align="left">
                   <Button
                     id="button-get"
                     name="get"
