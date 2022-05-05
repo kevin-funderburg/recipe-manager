@@ -3,10 +3,44 @@ import { TextField, Button, Typography } from "@mui/material";
 import { Box, Grid, Paper } from "@mui/material";
 import { Link } from "react-router-dom";
 import Image from "../../../styles/background.jpg";
+import axios from "axios";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [users, setUsers] = useState([]);
+  const [userFound, setUserFound] = useState(false);
+
+  //fetch all users on initail render
+  useEffect(() => {
+    fetchUserList();
+  }, []);
+
+  //fetch all users
+  const fetchUserList = async () => {
+    // Send GET request to 'users/all' endpoint
+    axios
+      .get("http://localhost:4001/users/all")
+      .then((response) => {
+        // Update the users state
+        setUsers(response.data);
+      })
+      .catch((error) =>
+        console.error(`There was an error retrieving the users list: ${error}`)
+      );
+  };
+
+  const handleClick = () => {
+    for (let index = 0; index < users.length; index++) {
+      const element = users[index];
+      if (element.email == email && element.password == password) {
+        setUserFound(true);
+        break;
+      } else {
+        alert("User not found.");
+      }
+    }
+  };
 
   return (
     <>
@@ -75,79 +109,98 @@ function Login() {
               borderRadius: 10,
             }}
           >
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <Typography variant="h4" sx={{ textAlign: "center" }}>
-                  Login
-                </Typography>
+            <form>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Typography variant="h4" sx={{ textAlign: "center" }}>
+                    Login
+                  </Typography>
+                </Grid>
               </Grid>
-            </Grid>
-            <hr width="90%" />
-            <br />
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  id="outlined-text-email"
-                  name="email"
-                  label="Email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+              <hr />
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    id="outlined-text-email"
+                    name="email"
+                    label="Email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </Grid>
               </Grid>
-            </Grid>
 
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  id="outlined-text-password"
-                  name="password"
-                  label="Password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    id="outlined-text-password"
+                    name="password"
+                    label="Password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </Grid>
               </Grid>
-            </Grid>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <Button
-                  component={Link}
-                  id="button-login"
-                  name="login"
-                  to={{
-                    pathname: "/myRecipes",
-                  }}
-                  variant="contained"
-                  color="primary"
-                >
-                  Login
-                </Button>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  {userFound ? (
+                    <Button
+                      component={Link}
+                      id="button-login"
+                      name="login"
+                      to={{
+                        pathname: "/myRecipes",
+                      }}
+                      variant="contained"
+                      color="primary"
+                      type="submit"
+                    >
+                      Login
+                    </Button>
+                  ) : (
+                    <Button
+                      id="button-check"
+                      name="check"
+                      variant="contained"
+                      onClick={handleClick}
+                      color="primary"
+                      type="submit"
+                    >
+                      Check
+                    </Button>
+                  )}
+                </Grid>
               </Grid>
-            </Grid>
-            <Typography
-              component={Link}
-              to={{ pathname: "/myAccount" }}
-              variant="link"
-              color="#E04D01"
-              sx={{ display: "block", marginBottom: "1%" }}
-            >
-              Forgot Password?
-            </Typography>
-            <Typography variant="link" color="black" sx={{ display: "inline" }}>
-              Don't have an account?
-            </Typography>
-            <Typography
-              component={Link}
-              to={{ pathname: "/signup" }}
-              variant="link"
-              color="#E04D01"
-              sx={{}}
-            >
-              Sign up
-            </Typography>
+              <Typography
+                component={Link}
+                to={{ pathname: "/myAccount" }}
+                variant="link"
+                color="#E04D01"
+                sx={{ display: "block", marginBottom: "1%" }}
+              >
+                Forgot Password?
+              </Typography>
+              <Typography
+                variant="link"
+                color="black"
+                sx={{ display: "inline" }}
+              >
+                Don't have an account?
+              </Typography>
+              <Typography
+                component={Link}
+                to={{ pathname: "/signup" }}
+                variant="link"
+                color="#E04D01"
+                sx={{}}
+              >
+                Sign up
+              </Typography>
+            </form>
           </Paper>
         </Box>
       </Box>
