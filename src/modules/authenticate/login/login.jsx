@@ -36,9 +36,9 @@ function Login() {
       if (element.email == email && element.password == password) {
         setUserFound(true);
         break;
-      } else {
-        alert("User not found.");
       }
+      alert("User not found.");
+      return;
     }
   };
 
@@ -61,14 +61,25 @@ function Login() {
             textAlign: "center",
             flexDirection: "column",
             justifyContent: "center",
+            "& .MuiPaper-root": {
+              opacity: 0.5,
+            },
           }}
         >
-          <Typography variant="h2" color="white">
-            Welcome!
-          </Typography>
-          <Typography variant="h2" color="white">
-            Please Log In
-          </Typography>
+          <Paper
+            sx={{
+              width: "70%",
+              height: "26%",
+            }}
+          >
+            <></>
+            <Typography variant="h2" color="#E04D01">
+              Welcome!
+            </Typography>
+            <Typography variant="h2" color="#E04D01">
+              Please Log In
+            </Typography>
+          </Paper>
         </Box>
         <Box
           sx={{

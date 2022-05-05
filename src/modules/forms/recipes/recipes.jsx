@@ -380,7 +380,10 @@ export default function RecipeList() {
                       <Modal
                         open={openModal}
                         onClose={handleModalClose}
-                        sx={{ bgcolor: "white" }}
+                        sx={{
+                          bgcolor: "rgba(255, 255, 255, 0.3)",
+                          opacity: 0.5,
+                        }}
                         aria-labelledby="modal-modal-title"
                         aria-describedby="modal-modal-description"
                       >
