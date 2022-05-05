@@ -62,17 +62,16 @@ function Login() {
             flexDirection: "column",
             justifyContent: "center",
             "& .MuiPaper-root": {
-              opacity: 0.5,
+              bgcolor: "rgba(255,255,255, 0.8)",
             },
           }}
         >
           <Paper
             sx={{
-              width: "70%",
-              height: "26%",
+              width: "65%",
+              ml: "20%",
             }}
           >
-            <></>
             <Typography variant="h2" color="#E04D01">
               Welcome!
             </Typography>
@@ -129,6 +128,7 @@ function Login() {
                 </Grid>
               </Grid>
               <hr />
+              <br></br>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <TextField
