@@ -1,3 +1,5 @@
+![recipes](./src/lib/imgs/recipes.png)
+
 # My Cookbook
 
 We are proposing an application to manage various recipes, in order to consolidate and organize them for quick and convenient access.​
