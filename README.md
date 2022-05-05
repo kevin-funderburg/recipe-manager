@@ -57,6 +57,7 @@ The goals of this project are:​
 After downloading the application, navigate to working directory and:
 
 ```shell
+npm install # install the necessary packages
 npm start # launch the application
 npm test # run tests
 ```
