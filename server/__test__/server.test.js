@@ -1,18 +1,14 @@
+const app = require('../server')
 const request = require('supertest');
-const assert = require('assert');
-const express = require('express');
 
-const app = express();
-console.l
-app.get('/user', function(req, res) {
-  res.status(200).json({ name: 'john' });
-});
-
-request(app)
-  .get('/user')
-  .expect('Content-Type', /json/)
-  .expect('Content-Length', '15')
-  .expect(200)
-  .end(function(err, res) {
-    if (err) throw err;
-  });
+describe('/recipes/all', () => {
+  it('returns all the recipes', async () => {
+    const res = await request(app)
+      .get('recipes/all ')
+      .expect('Content-Type', /json/)
+      .end(function(err, res) {
+        if (err) throw err;
+      });
+      
+  })
+})
