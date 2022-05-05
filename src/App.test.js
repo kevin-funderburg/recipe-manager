@@ -7,7 +7,7 @@ const links = [
   {text: 'My Account', location: "/myAccount"},
   {text: 'My Recipes', location: "/myRecipes"},
   {text: 'Grocery List', location: "/groceryList"},
-  {text: 'In Stock', location: "/inStock"},
+  {text: 'Download', location: "/download"},
   {text: 'Log Out', location: "/"},
 ]
 

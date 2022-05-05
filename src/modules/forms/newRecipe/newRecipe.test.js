@@ -5,7 +5,6 @@ import NewRecipe from './newRecipe'; // component to test
 import { BrowserRouter as Router } from 'react-router-dom';
 
 const buttons = [
-    { text: 'DOWNLOAD' },
     { text: 'CANCEL' },
     { text: 'SAVE' },
 ]
